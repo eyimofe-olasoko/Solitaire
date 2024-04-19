@@ -12,6 +12,7 @@ void Deck::Output() {
 
 Deck::Deck() {
 
+	//Filling the card deck vector with cards 
 	for (size_t item = 0; item < 13; item++)
 	{
 		cardDeck.push_back(Cards("Diamond", item));
@@ -33,6 +34,8 @@ Deck::Deck() {
 }
 
 void Deck::shuffle() {
+
+	//Shuffling the cards in the card deck vector
 	random_shuffle(cardDeck.begin(), cardDeck.end());
 
 }
