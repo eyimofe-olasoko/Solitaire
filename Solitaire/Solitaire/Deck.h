@@ -15,6 +15,6 @@ public:
 
 	void shuffle();
 
-	//
+	//Creating a function to display all the card within the cardDeck
 	void Output();
 };
