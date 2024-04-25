@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "Cards.h"
+#include "Deck.h"
 #include <vector>
 
 using namespace std;
@@ -16,6 +17,10 @@ public:
     vector<Cards> fourthRow;
     vector<Cards> fifthRow;
 
-    CardRows();
+    CardRows(Deck& sourceDeck);
+
+    void displayCards();
+
+    
 };
 
