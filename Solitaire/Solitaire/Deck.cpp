@@ -29,8 +29,6 @@ Deck::Deck() {
 	{
 		cardDeck.push_back(Cards("Spades", item));
 	}
-
-
 }
 
 void Deck::shuffle() {

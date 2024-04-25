@@ -1,6 +1,6 @@
 #include "CardRows.h"
-#include "Deck.h"
-
+#include "Deck.h"  
+#include <random>
 
     CardRows::CardRows() {
 

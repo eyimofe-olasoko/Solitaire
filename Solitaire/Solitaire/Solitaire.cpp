@@ -22,10 +22,18 @@ int main()
 
     //Shuffles card deck
     solitaireDeck.shuffle();
+    
 
+    cout << solitaireDeck.cardDeck.back().getValue() << " of " << solitaireDeck.cardDeck.back().getSuit() << " | ";
 
+    cout << endl;
 
+    for (size_t item = 0; item < 5; item++)
+    {
+        cout << playingCards.firstRow[item].getValue() << " of " << playingCards.firstRow[item].getSuit() << " | ";
 
+    }
+    
 }
 
 
