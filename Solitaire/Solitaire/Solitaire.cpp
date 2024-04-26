@@ -12,6 +12,8 @@ using namespace std;
 int main()
 {
 
+    bool changeValue = false;
+
     //Setting the seed of srand to 0 so a different number generates on each run of the game.
     srand(time(0));
 
@@ -23,8 +25,11 @@ int main()
 
     //Creating a card row object based on the card row class
     CardRows playingCards = CardRows(solitaireDeck);
-   
+
+    //Displaying card rows
     playingCards.displayCards();
+
+
 }
 
 
