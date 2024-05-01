@@ -19,7 +19,7 @@ public:
 
     CardRows(Deck& sourceDeck);
 
-    void displayCards();
+    void displayCards(int num);
 
     
 };
