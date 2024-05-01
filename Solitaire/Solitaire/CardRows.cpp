@@ -28,12 +28,12 @@
     }
 }
 
-    void CardRows::displayCards(int num) 
+    void CardRows::displayCards() 
     {
 
         //Displaying all the card rows and changing the card values to match card names
 
-        for (size_t i = 0; i < 5; i++) 
+        for (size_t i = 0; i < firstLength; i++) 
         {
             if (firstRow[i].getValue() == 0)
             {
@@ -61,7 +61,7 @@
 
         cout << endl;
 
-        for (size_t i = 0; i < 5; i++) 
+        for (size_t i = 0; i < secondLength; i++) 
         {
             if (secondRow[i].getValue() == 0)
             {
@@ -89,7 +89,7 @@
 
         cout << endl;
 
-        for (size_t i = 0; i < 5; i++)
+        for (size_t i = 0; i < thirdLength; i++)
         {
             if (thirdRow[i].getValue() == 0)
             {
@@ -117,7 +117,7 @@
 
         cout << endl;
 
-        for (size_t i = 0; i < 5; i++)
+        for (size_t i = 0; i < fourthLength; i++)
         {
             if (fourthRow[i].getValue() == 0)
             {
@@ -145,7 +145,7 @@
 
         cout << endl;
 
-        for (size_t i = 0; i < num; i++)
+        for (size_t i = 0; i < fifthLength; i++)
         {
             if (fifthRow[i].getValue() == 0)
             {

@@ -21,6 +21,11 @@ public:
 
     void displayCards(int num);
 
-    
+    int firstLength = 5;
+    int secondLength = 5;
+    int thirdLength = 5;
+    int fourthLength = 5;
+    int fifthLength = 5;
+
 };
 

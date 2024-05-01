@@ -30,6 +30,7 @@ int main()
     //Creating a vector to store the player's cards
     vector<Cards> playerHand;
 
+    //Creating a vector to store the card pile that the player can draw from
     vector<Cards> cardStock;
 
     //Shuffles card deck
@@ -67,14 +68,7 @@ int main()
 
         while (playerChoice > 0 && playerChoice <= 5)
         {
-            if (playerChoice == 1)
-            {
-                playingCards.fifthRow.pop_back();
-
-                changeLength--;
-
-                playingCards.displayCards(changeLength);
-            }
+            
         }
 
         
