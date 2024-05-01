@@ -19,7 +19,7 @@ public:
 
     CardRows(Deck& sourceDeck);
 
-    void displayCards(int num);
+    void displayCards();
 
     int firstLength = 5;
     int secondLength = 5;

@@ -11,11 +11,11 @@ using namespace std;
 
 int main()
 {
-    
-
-   
     //Creating a variable to store the card the player chose
     int playerChoice = 0;
+
+    //Creating a variable that allows player to choose the card row they want to choose from
+    int playerChoiceRow = 0;
      
     //Creating a variable to track the number of cards in the card vectors
     int changeLength = 5;
@@ -40,7 +40,7 @@ int main()
     CardRows playingCards = CardRows(solitaireDeck);
 
     //Displaying card rows
-    playingCards.displayCards(changeLength);
+    playingCards.displayCards();
 
     cout << endl;
 
@@ -53,32 +53,103 @@ int main()
 
     do
     {
-
+        //Diplaying the player starting card/getting card choice input
         cout << "Your staring card is: " << solitaireDeck.cardDeck.back().getValue() << " of " << solitaireDeck.cardDeck.back().getSuit() << endl;
 
         cout << "Choose a card: ";
 
         cin >> playerChoice;
 
+        cout << endl;
+
+        cout << "Choose a card row: ";
+        
+        cin >> playerChoiceRow;
+
+
+        //Displaying an error if the player doesn't enter a number between 1 and 5
         if (playerChoice > 5 || playerChoice == 0)
         {
             cout << "ERROR!! Please enter a number between 1 and 5";
         }
 
-
-        while (playerChoice > 0 && playerChoice <= 5)
+        //Looping while the player enters a number between 1 and 5
+        while (playerChoice > 0 || playerChoice <= 5)
         {
-            
+
+            //Checking if the player chose the first card 
+            if (playerChoice == 1 && playerChoiceRow == 5)
+            {
+                //Deleting the first card the vector 
+                playingCards.fifthRow.erase(playingCards.fifthRow.begin());
+
+                //Decrementing the vector length by one 
+                playingCards.fifthLength--;
+
+                playingCards.displayCards();
+
+                cout << endl;
+
+            }
+            else if (playerChoice == 2 && playerChoiceRow == 5)
+            {
+                playingCards.fifthRow.erase(playingCards.fifthRow.begin() + 1);
+
+                //Decrementing the vector length by one 
+                playingCards.fifthLength--;
+
+                playingCards.displayCards();
+
+                cout << endl;
+            }
+            else if (playerChoice == 3 && playerChoiceRow == 5)
+            {
+                playingCards.fifthRow.erase(playingCards.fifthRow.begin() + 2);
+
+                //Decrementing the vector length by one 
+                playingCards.fifthLength--;
+
+                playingCards.displayCards();
+
+                cout << endl;
+            }
+            else if (playerChoice == 4 && playerChoiceRow == 5)
+            {
+                playingCards.fifthRow.erase(playingCards.fifthRow.begin() + 3);
+
+                //Decrementing the vector length by one 
+                playingCards.fifthLength--;
+
+                playingCards.displayCards();
+
+                cout << endl;
+            }
+            else if (playerChoice == 5 && playerChoiceRow == 5)
+            {
+                playingCards.fifthRow.erase(playingCards.fifthRow.begin() + 4);
+
+                //Decrementing the vector length by one 
+                playingCards.fifthLength--;
+
+                playingCards.displayCards();
+
+                cout << endl;
+            }
+
+            cout << endl;
+
+            cout << "Choose a card: ";
+
+            cin >> playerChoice;
+
+            cout << endl;
+
+            cout << "Choose a card row: ";
+
+            cin >> playerChoiceRow;
         }
 
-        
-
-        if (changeLength == 0)
-        {
-            break;
-        }
-
-
+       
     //Looping as long as the player types a number from 1 to 5
     } while (playerChoice > 5 || playerChoice == 0);
 
