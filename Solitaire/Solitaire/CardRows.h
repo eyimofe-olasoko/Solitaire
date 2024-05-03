@@ -35,6 +35,7 @@ public:
     //Creating a vector to store the player's cards
     vector<Cards> playerHand;
 
+    //Creating a variable that allows player to choose the card row they want to choose from
     int playerChoiceRow = 0;
 };
 

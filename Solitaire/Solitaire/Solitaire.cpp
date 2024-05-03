@@ -42,37 +42,42 @@ int main()
         solitaireDeck.cardDeck.pop_back();
     }
 
+    //Adding a starting card to playerHand
+    playingCards.playerHand.push_back(solitaireDeck.cardDeck.back());
+
     do
     {
         cout << endl;
 
         //Checking if card value matches card name
-        if (solitaireDeck.cardDeck.back().getValue() == 0)
+        if (playingCards.playerHand.back().getValue() == 0)
         {
-            solitaireDeck.cardDeck.back().setValue(1);
+            playingCards.playerHand.back().setValue(1);
 
-            cout << "Your starting card is: " << "Ace" << " of " << solitaireDeck.cardDeck.back().getSuit() << endl;
+            cout << "Your card is: " << "Ace" << " of " << playingCards.playerHand.back().getSuit() << endl;
         }
-        else if (solitaireDeck.cardDeck.back().getValue() == 0)
+        else if (playingCards.playerHand.back().getValue() == 1)
         {
-            cout << "Your starting card is: " << "Ace" << " of " << solitaireDeck.cardDeck.back().getSuit() << endl;
+            cout << "Your card is: " << "Ace" << " of " << playingCards.playerHand.back().getSuit() << endl;
         }
-        else if (solitaireDeck.cardDeck.back().getValue() == 11)
+        else if (playingCards.playerHand.back().getValue() == 11)
         {
-            cout << "Your starting card is: " << "Jack" << " of " << solitaireDeck.cardDeck.back().getSuit() << endl;
+            cout << "Your card is: " << "Jack" << " of " << playingCards.playerHand.back().getSuit() << endl;
         }
-        else if (solitaireDeck.cardDeck.back().getValue() == 12)
+        else if (playingCards.playerHand.back().getValue() == 12)
         {
-            cout << "Your starting card is: " << "Queen" << " of " << solitaireDeck.cardDeck.back().getSuit() << endl;
+            cout << "Your card is: " << "Queen" << " of " << playingCards.playerHand.back().getSuit() << endl;
         }
-        else if (solitaireDeck.cardDeck.back().getValue() == 13)
+        else if (playingCards.playerHand.back().getValue() == 13)
         {
-            cout << "Your starting card is: " << "King" << " of " << solitaireDeck.cardDeck.back().getSuit() << endl;
+            cout << "Your card is: " << "King" << " of " << playingCards.playerHand.back().getSuit() << endl;
         }
         else
         {
-            cout << "Your starting card is: " << solitaireDeck.cardDeck.back().getValue() << " of " << solitaireDeck.cardDeck.back().getSuit() << endl;
+            cout << "Your card is: " << playingCards.playerHand.back().getValue() << " of " << playingCards.playerHand.back().getSuit() << endl;
         }
+
+        cout << endl;
 
         cout << "Choose a card: ";
 
@@ -91,11 +96,7 @@ int main()
             cout << "ERROR!! Please enter a number between 1 and 5";
         }
 
-        //Looping while the player enters a number between 1 and 5
-        while (playingCards.playerChoice > 0 || playingCards.playerChoice <= 5)
-        {
-            playingCards.fifthRowLogic();
-        }
+        playingCards.fifthRowLogic();
 
        
     //Looping as long as the player types a number from 1 to 5

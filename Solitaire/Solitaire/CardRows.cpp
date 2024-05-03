@@ -41,6 +41,10 @@
 
                 cout << "Ace" << " of " << firstRow[i].getSuit() << " | ";
             }
+            else if (firstRow[i].getValue() == 1)
+            {
+                cout << "Ace" << " of " << firstRow[i].getSuit() << " | ";
+            }
             else if (firstRow[i].getValue() == 11)
             {
                 cout << "Jack" << " of " << firstRow[i].getSuit() << " | ";
@@ -67,6 +71,10 @@
             {
                 secondRow[i].setValue(1);
 
+                cout << "Ace" << " of " << secondRow[i].getSuit() << " | ";
+            }
+            else if (secondRow[i].getValue() == 1)
+            {
                 cout << "Ace" << " of " << secondRow[i].getSuit() << " | ";
             }
             else if (secondRow[i].getValue() == 11)
@@ -97,6 +105,10 @@
 
                 cout << "Ace" << " of " << thirdRow[i].getSuit() << " | ";
             }
+            else if (thirdRow[i].getValue() == 1)
+            {
+                cout << "Ace" << " of " << thirdRow[i].getSuit() << " | ";
+            }
             else if (thirdRow[i].getValue() == 11)
             {
                 cout << "Jack" << " of " << thirdRow[i].getSuit() << " | ";
@@ -123,6 +135,10 @@
             {
                 fourthRow[i].setValue(1);
 
+                cout << "Ace" << " of " << fourthRow[i].getSuit() << " | ";
+            }
+            else if (fourthRow[i].getValue() == 1)
+            {
                 cout << "Ace" << " of " << fourthRow[i].getSuit() << " | ";
             }
             else if (fourthRow[i].getValue() == 11)
@@ -153,6 +169,10 @@
 
                 cout << "Ace" << " of " << fifthRow[i].getSuit() << " | ";
             }
+            else if (fifthRow[i].getValue() == 1)
+            {
+                cout << "Ace" << " of " << fifthRow[i].getSuit() << " | ";
+            }
             else if (fifthRow[i].getValue() == 11)
             {
                 cout << "Jack" << " of " << fifthRow[i].getSuit() << " | ";
@@ -178,10 +198,10 @@
         while (playerChoice > 0 || playerChoice <= 5)
         {
             //Checking what card (playerChoice) and row (playerChoiceRow) the player choice
-            if (playerChoice == 1 && playerChoiceRow == 5)
+            if (playerChoice == 5 && playerChoiceRow == 5)
             {
                 //Checking if the playerChoice value is either 1 greater or 1 less than the playing card value
-                if (playerChoice == fifthRow.back().getValue() + 1 || playerChoice == fifthRow.back().getValue() - 1)
+                if (playerHand.back().getValue() == fifthRow[4].getValue() + 1 || playerHand.back().getValue() == fifthRow[4].getValue() - 1)
                 {
                     //Adding the playerChoice card to their hand
                     playerHand.push_back(fifthRow[4]);
@@ -201,11 +221,13 @@
                     cout << endl;
 
                     cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
+
+                    cout << endl;
                 }
             }
-            else if (playerChoice == 2 && playerChoiceRow == 5)
+            else if (playerChoice == 4 && playerChoiceRow == 5)
             {
-                if (playerChoice == fifthRow.back().getValue() + 1 || playerChoice == fifthRow.back().getValue() - 1)
+                if (playerHand.back().getValue() == fifthRow[3].getValue() + 1 || playerHand.back().getValue() == fifthRow[3].getValue() - 1)
                 {
                     //Adding the playerChoice card to their hand
                     playerHand.push_back(fifthRow[3]);
@@ -222,7 +244,7 @@
             }
             else if (playerChoice == 3 && playerChoiceRow == 5)
             {
-                if (playerChoice == fifthRow.back().getValue() + 1 || playerChoice == fifthRow.back().getValue() - 1)
+                if (playerHand.back().getValue() == fifthRow[2].getValue() + 1 || playerHand.back().getValue() == fifthRow[2].getValue() - 1)
                 {
                     //Adding the playerChoice card to their hand
                     playerHand.push_back(fifthRow[2]);
@@ -241,11 +263,13 @@
                     cout << endl;
 
                     cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
+
+                    cout << endl;
                 }
             }
-            else if (playerChoice == 4 && playerChoiceRow == 5)
+            else if (playerChoice == 2 && playerChoiceRow == 5)
             {
-                if (playerChoice == fifthRow.back().getValue() + 1 || playerChoice == fifthRow.back().getValue() - 1)
+                if (playerHand.back().getValue() == fifthRow[1].getValue() + 1 || playerHand.back().getValue() == fifthRow[1].getValue() - 1)
                 {
                     //Adding the playerChoice card to their hand
                     playerHand.push_back(fifthRow[1]);
@@ -264,11 +288,13 @@
                     cout << endl;
 
                     cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
+
+                    cout << endl;
                 }
             }
-            else if (playerChoice == 5 && playerChoiceRow == 5)
+            else if (playerChoice == 1 && playerChoiceRow == 5)
             {
-                if (playerChoice == fifthRow.back().getValue() + 1 || playerChoice == fifthRow.back().getValue() - 1)
+                if (playerHand.back().getValue() == fifthRow.back().getValue() + 1 || playerHand.back().getValue() == fifthRow.back().getValue() - 1)
                 {
                     //Adding the playerChoice card to their hand
                     playerHand.push_back(fifthRow[0]);
@@ -287,7 +313,40 @@
                     cout << endl;
 
                     cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
+
+                    cout << endl;
                 }
+            }
+
+
+            cout << endl;
+
+            //Checking if card value matches card name
+            if (playerHand.back().getValue() == 0)
+            {
+                playerHand.back().setValue(1);
+
+                cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
+            }
+            else if (playerHand.back().getValue() == 1)
+            {
+                cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
+            }
+            else if (playerHand.back().getValue() == 11)
+            {
+                cout << "Your card is: " << "Jack" << " of " << playerHand.back().getSuit() << endl;
+            }
+            else if (playerHand.back().getValue() == 12)
+            {
+                cout << "Your card is: " << "Queen" << " of " << playerHand.back().getSuit() << endl;
+            }
+            else if (playerHand.back().getValue() == 13)
+            {
+                cout << "Your card is: " << "King" << " of " << playerHand.back().getSuit() << endl;
+            }
+            else
+            {
+                cout << "Your card is: " << playerHand.back().getValue() << " of " << playerHand.back().getSuit() << endl;
             }
 
             cout << "Choose a card: ";
@@ -299,6 +358,12 @@
             cout << "Choose a card row: ";
 
             cin >> playerChoiceRow;
+
+            //Checking if the vector is empty
+            if (fifthLength == 0)
+            {
+                break;
+            }
 
         }
        
