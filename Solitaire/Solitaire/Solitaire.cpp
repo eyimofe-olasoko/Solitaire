@@ -53,7 +53,6 @@ int main()
 
     do
     {
-
         cout << endl;
 
         //Checking if card value matches card name
@@ -104,79 +103,117 @@ int main()
         //Looping while the player enters a number between 1 and 5
         while (playerChoice > 0 || playerChoice <= 5)
         {
-
             //Checking what card (playerChoice) and row (playerChoiceRow) the player choice
             if (playerChoice == 1 && playerChoiceRow == 5)
             {
-                //Adding the playerChoice card to their hand
-                playerHand.push_back(playingCards.fifthRow[4]);
+                //Checking if the playerChoice value is either 1 greater or 1 less than the playing card value
+                if (playerChoice == playingCards.fifthRow.back().getValue() + 1 || playerChoice == playingCards.fifthRow.back().getValue() - 1)
+                {
+                    //Adding the playerChoice card to their hand
+                    playerHand.push_back(playingCards.fifthRow[4]);
 
-                //Deleting the card as the index corresponding with the playerChoice
-                playingCards.fifthRow.pop_back();
+                    //Deleting the card as the index corresponding with the playerChoice
+                    playingCards.fifthRow.pop_back();
 
-                //Decrementing the vector length by one 
-                playingCards.fifthLength--;
+                    //Decrementing the vector length by one 
+                    playingCards.fifthLength--;
 
-                playingCards.displayCards();
+                    playingCards.displayCards();
 
-                cout << endl;
+                    cout << endl;
+                }
+                else 
+                {
+                    cout << endl;
 
+                    cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
+                }
             }
             else if (playerChoice == 2 && playerChoiceRow == 5)
             {
-                //Adding the playerChoice card to their hand
-                playerHand.push_back(playingCards.fifthRow[3]);
+                if (playerChoice == playingCards.fifthRow.back().getValue() + 1 || playerChoice == playingCards.fifthRow.back().getValue() - 1)
+                {
+                    //Adding the playerChoice card to their hand
+                    playerHand.push_back(playingCards.fifthRow[3]);
 
-                playingCards.fifthRow.erase(playingCards.fifthRow.begin() + 3);
+                    playingCards.fifthRow.erase(playingCards.fifthRow.begin() + 3);
 
-                //Decrementing the vector length by one 
-                playingCards.fifthLength--;
+                    //Decrementing the vector length by one 
+                    playingCards.fifthLength--;
 
-                playingCards.displayCards();
+                    playingCards.displayCards();
 
-                cout << endl;
+                    cout << endl;
+                }
             }
             else if (playerChoice == 3 && playerChoiceRow == 5)
             {
-                //Adding the playerChoice card to their hand
-                playerHand.push_back(playingCards.fifthRow[2]);
+                if (playerChoice == playingCards.fifthRow.back().getValue() + 1 || playerChoice == playingCards.fifthRow.back().getValue() - 1)
+                {
+                    //Adding the playerChoice card to their hand
+                    playerHand.push_back(playingCards.fifthRow[2]);
 
-                playingCards.fifthRow.erase(playingCards.fifthRow.begin() + 2);
+                    playingCards.fifthRow.erase(playingCards.fifthRow.begin() + 2);
 
-                //Decrementing the vector length by one 
-                playingCards.fifthLength--;
+                    //Decrementing the vector length by one 
+                    playingCards.fifthLength--;
 
-                playingCards.displayCards();
+                    playingCards.displayCards();
 
-                cout << endl;
+                    cout << endl;
+                }
+                else
+                {
+                    cout << endl;
+
+                    cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
+                }
             }
             else if (playerChoice == 4 && playerChoiceRow == 5)
             {
-                //Adding the playerChoice card to their hand
-                playerHand.push_back(playingCards.fifthRow[1]);
+                if (playerChoice == playingCards.fifthRow.back().getValue() + 1 || playerChoice == playingCards.fifthRow.back().getValue() - 1)
+                {
+                    //Adding the playerChoice card to their hand
+                    playerHand.push_back(playingCards.fifthRow[1]);
 
-                playingCards.fifthRow.erase(playingCards.fifthRow.begin() + 1);
+                    playingCards.fifthRow.erase(playingCards.fifthRow.begin() + 1);
 
-                //Decrementing the vector length by one 
-                playingCards.fifthLength--;
+                    //Decrementing the vector length by one 
+                    playingCards.fifthLength--;
 
-                playingCards.displayCards();
+                    playingCards.displayCards();
 
-                cout << endl;
+                    cout << endl;
+                }
+                else
+                {
+                    cout << endl;
+
+                    cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
+                }
             }
             else if (playerChoice == 5 && playerChoiceRow == 5)
             {
-                //Adding the playerChoice card to their hand
-                playerHand.push_back(playingCards.fifthRow[0]);
+                if (playerChoice == playingCards.fifthRow.back().getValue() + 1 || playerChoice == playingCards.fifthRow.back().getValue() - 1)
+                {
+                    //Adding the playerChoice card to their hand
+                    playerHand.push_back(playingCards.fifthRow[0]);
 
-                playingCards.fifthRow.erase(playingCards.fifthRow.begin());
+                    playingCards.fifthRow.erase(playingCards.fifthRow.begin());
 
-                //Decrementing the vector length by one 
-                playingCards.fifthLength--;
+                    //Decrementing the vector length by one 
+                    playingCards.fifthLength--;
 
-                playingCards.displayCards();
+                    playingCards.displayCards();
 
-                cout << endl;
+                    cout << endl;
+                }
+                else
+                {
+                    cout << endl;
+
+                    cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
+                }
             }
 
             if (playerChoice == 1 && playerChoiceRow == 4)
