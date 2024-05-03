@@ -5,6 +5,8 @@
 #include <random>
 #include "Deck.h"
 #include "CardRows.h"
+#include "Gameplay.h"
+
 
 using namespace std;
 
@@ -29,6 +31,9 @@ int main()
     //Creating a card row object based on the card row class
     CardRows playingCards = CardRows(solitaireDeck);
 
+    //Creating an object from Gameplay class
+    Gameplay Game = Gameplay();
+
     //Displaying card rows
     playingCards.displayCards();
 
@@ -42,58 +47,60 @@ int main()
         solitaireDeck.cardDeck.pop_back();
     }
 
+    Game.playerHand.push_back(solitaireDeck.cardDeck.back());
+
     do
     {
         cout << endl;
 
         //Checking if card value matches card name
-        if (playingCards.playerHand.back().getValue() == 0)
+        if (Game.playerHand.back().getValue() == 0)
         {
-            playingCards.playerHand.back().setValue(1);
+            Game.playerHand.back().setValue(1);
 
-            cout << "Your card is: " << "Ace" << " of " << playingCards.playerHand.back().getSuit() << endl;
+            cout << "Your card is: " << "Ace" << " of " << Game.playerHand.back().getSuit() << endl;
         }
-        else if (playingCards.playerHand.back().getValue() == 1)
+        else if (Game.playerHand.back().getValue() == 1)
         {
-            cout << "Your card is: " << "Ace" << " of " << playingCards.playerHand.back().getSuit() << endl;
+            cout << "Your card is: " << "Ace" << " of " << Game.playerHand.back().getSuit() << endl;
         }
-        else if (playingCards.playerHand.back().getValue() == 11)
+        else if (Game.playerHand.back().getValue() == 11)
         {
-            cout << "Your card is: " << "Jack" << " of " << playingCards.playerHand.back().getSuit() << endl;
+            cout << "Your card is: " << "Jack" << " of " << Game.playerHand.back().getSuit() << endl;
         }
-        else if (playingCards.playerHand.back().getValue() == 12)
+        else if (Game.playerHand.back().getValue() == 12)
         {
-            cout << "Your card is: " << "Queen" << " of " << playingCards.playerHand.back().getSuit() << endl;
+            cout << "Your card is: " << "Queen" << " of " << Game.playerHand.back().getSuit() << endl;
         }
-        else if (playingCards.playerHand.back().getValue() == 13)
+        else if (Game.playerHand.back().getValue() == 13)
         {
-            cout << "Your card is: " << "King" << " of " << playingCards.playerHand.back().getSuit() << endl;
+            cout << "Your card is: " << "King" << " of " << Game.playerHand.back().getSuit() << endl;
         }
         else
         {
-            cout << "Your card is: " << playingCards.playerHand.back().getValue() << " of " << playingCards.playerHand.back().getSuit() << endl;
+            cout << "Your card is: " << Game.playerHand.back().getValue() << " of " << Game.playerHand.back().getSuit() << endl;
         }
 
         cout << endl;
 
         cout << "Choose a card: ";
 
-        cin >> playingCards.playerChoice;
+        cin >> Game.playerChoice;
 
         cout << endl;
 
 
         //Displaying an error if the player doesn't enter a number between 1 and 5
-        if (playingCards.playerChoice > 5 || playingCards.playerChoice == 0)
+        if (Game.playerChoice > 5 || Game.playerChoice == 0)
         {
             cout << "ERROR!! Please enter a number between 1 and 5";
         }
 
-        playingCards.fifthRowLogic();
+        Game.fifthRowLogic(playingCards);
 
-       
+
     //Looping as long as the player types a number from 1 to 5
-    } while (playingCards.playerChoice > 5 || playingCards.playerChoice == 0);
+    } while (Game.playerChoice > 5 || Game.playerChoice == 0);
 }
 
 

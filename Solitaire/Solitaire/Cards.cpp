@@ -7,9 +7,7 @@ Cards::Cards(string CardSuit, int CardValue) {
 
 }
 
-Cards::Cards() {
-
-}
+Cards::Cards() {}
 
 
 string Cards::getSuit() {

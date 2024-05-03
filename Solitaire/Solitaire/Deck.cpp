@@ -10,7 +10,6 @@ void Deck::Output() {
 	}
 }
 
-
 Deck::Deck() {
 
 	//Filling the card deck vector with cards 

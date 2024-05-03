@@ -20,7 +20,6 @@ public:
     CardRows(Deck& sourceDeck);
 
     void displayCards();
-    void fifthRowLogic();
 
     //Creating variable to track the length of the vector
     int firstLength = 5;
@@ -29,10 +28,6 @@ public:
     int fourthLength = 5;
     int fifthLength = 5;
 
-    //Creating a variable to store the card the player chose
-    int playerChoice = 0;
-
-    //Creating a vector to store the player's cards
-    vector<Cards> playerHand;
+    
 };
 
