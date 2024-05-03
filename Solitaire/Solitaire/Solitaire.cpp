@@ -42,9 +42,6 @@ int main()
         solitaireDeck.cardDeck.pop_back();
     }
 
-    //Adding a starting card to playerHand
-    playingCards.playerHand.push_back(solitaireDeck.cardDeck.back());
-
     do
     {
         cout << endl;
@@ -84,10 +81,6 @@ int main()
         cin >> playingCards.playerChoice;
 
         cout << endl;
-
-        cout << "Choose a card row: ";
-        
-        cin >> playingCards.playerChoiceRow;
 
 
         //Displaying an error if the player doesn't enter a number between 1 and 5

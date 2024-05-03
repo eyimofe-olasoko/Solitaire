@@ -32,7 +32,6 @@
     {
 
         //Displaying all the card rows and changing the card values to match card names
-
         for (size_t i = 0; i < firstLength; i++) 
         {
             if (firstRow[i].getValue() == 0)
