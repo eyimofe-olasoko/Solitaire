@@ -171,3 +171,135 @@
             }
         }
     }
+
+    void CardRows::fifthRowLogic() 
+    {
+        //Looping while the player enters a number between 1 and 5
+        while (playerChoice > 0 || playerChoice <= 5)
+        {
+            //Checking what card (playerChoice) and row (playerChoiceRow) the player choice
+            if (playerChoice == 1 && playerChoiceRow == 5)
+            {
+                //Checking if the playerChoice value is either 1 greater or 1 less than the playing card value
+                if (playerChoice == fifthRow.back().getValue() + 1 || playerChoice == fifthRow.back().getValue() - 1)
+                {
+                    //Adding the playerChoice card to their hand
+                    playerHand.push_back(fifthRow[4]);
+
+                    //Deleting the card as the index corresponding with the playerChoice
+                    fifthRow.pop_back();
+
+                    //Decrementing the vector length by one 
+                    fifthLength--;
+
+                    displayCards();
+
+                    cout << endl;
+                }
+                else
+                {
+                    cout << endl;
+
+                    cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
+                }
+            }
+            else if (playerChoice == 2 && playerChoiceRow == 5)
+            {
+                if (playerChoice == fifthRow.back().getValue() + 1 || playerChoice == fifthRow.back().getValue() - 1)
+                {
+                    //Adding the playerChoice card to their hand
+                    playerHand.push_back(fifthRow[3]);
+
+                    fifthRow.erase(fifthRow.begin() + 3);
+
+                    //Decrementing the vector length by one 
+                    fifthLength--;
+
+                    displayCards();
+
+                    cout << endl;
+                }
+            }
+            else if (playerChoice == 3 && playerChoiceRow == 5)
+            {
+                if (playerChoice == fifthRow.back().getValue() + 1 || playerChoice == fifthRow.back().getValue() - 1)
+                {
+                    //Adding the playerChoice card to their hand
+                    playerHand.push_back(fifthRow[2]);
+
+                    fifthRow.erase(fifthRow.begin() + 2);
+
+                    //Decrementing the vector length by one 
+                    fifthLength--;
+
+                    displayCards();
+
+                    cout << endl;
+                }
+                else
+                {
+                    cout << endl;
+
+                    cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
+                }
+            }
+            else if (playerChoice == 4 && playerChoiceRow == 5)
+            {
+                if (playerChoice == fifthRow.back().getValue() + 1 || playerChoice == fifthRow.back().getValue() - 1)
+                {
+                    //Adding the playerChoice card to their hand
+                    playerHand.push_back(fifthRow[1]);
+
+                    fifthRow.erase(fifthRow.begin() + 1);
+
+                    //Decrementing the vector length by one 
+                    fifthLength--;
+
+                    displayCards();
+
+                    cout << endl;
+                }
+                else
+                {
+                    cout << endl;
+
+                    cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
+                }
+            }
+            else if (playerChoice == 5 && playerChoiceRow == 5)
+            {
+                if (playerChoice == fifthRow.back().getValue() + 1 || playerChoice == fifthRow.back().getValue() - 1)
+                {
+                    //Adding the playerChoice card to their hand
+                    playerHand.push_back(fifthRow[0]);
+
+                    fifthRow.erase(fifthRow.begin());
+
+                    //Decrementing the vector length by one 
+                    fifthLength--;
+
+                    displayCards();
+
+                    cout << endl;
+                }
+                else
+                {
+                    cout << endl;
+
+                    cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
+                }
+            }
+
+            cout << "Choose a card: ";
+
+            cin >> playerChoice;
+
+            cout << endl;
+
+            cout << "Choose a card row: ";
+
+            cin >> playerChoiceRow;
+
+        }
+       
+    }
