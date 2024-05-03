@@ -198,7 +198,7 @@
         while (playerChoice > 0 || playerChoice <= 5)
         {
             //Checking what card (playerChoice) and row (playerChoiceRow) the player choice
-            if (playerChoice == 5 && playerChoiceRow == 5)
+            if (playerChoice == 5)
             {
                 //Checking if the playerChoice value is either 1 greater or 1 less than the playing card value
                 if (playerHand.back().getValue() == fifthRow[4].getValue() + 1 || playerHand.back().getValue() == fifthRow[4].getValue() - 1)
@@ -225,7 +225,7 @@
                     cout << endl;
                 }
             }
-            else if (playerChoice == 4 && playerChoiceRow == 5)
+            else if (playerChoice == 4)
             {
                 if (playerHand.back().getValue() == fifthRow[3].getValue() + 1 || playerHand.back().getValue() == fifthRow[3].getValue() - 1)
                 {
@@ -242,7 +242,7 @@
                     cout << endl;
                 }
             }
-            else if (playerChoice == 3 && playerChoiceRow == 5)
+            else if (playerChoice == 3)
             {
                 if (playerHand.back().getValue() == fifthRow[2].getValue() + 1 || playerHand.back().getValue() == fifthRow[2].getValue() - 1)
                 {
@@ -267,7 +267,7 @@
                     cout << endl;
                 }
             }
-            else if (playerChoice == 2 && playerChoiceRow == 5)
+            else if (playerChoice == 2)
             {
                 if (playerHand.back().getValue() == fifthRow[1].getValue() + 1 || playerHand.back().getValue() == fifthRow[1].getValue() - 1)
                 {
@@ -292,7 +292,7 @@
                     cout << endl;
                 }
             }
-            else if (playerChoice == 1 && playerChoiceRow == 5)
+            else if (playerChoice == 1)
             {
                 if (playerHand.back().getValue() == fifthRow.back().getValue() + 1 || playerHand.back().getValue() == fifthRow.back().getValue() - 1)
                 {
@@ -354,10 +354,6 @@
             cin >> playerChoice;
 
             cout << endl;
-
-            cout << "Choose a card row: ";
-
-            cin >> playerChoiceRow;
 
             //Checking if the vector is empty
             if (fifthLength == 0)
