@@ -4,7 +4,7 @@ using namespace std;
 Gameplay::Gameplay(){}
 
 
-void Gameplay::fifthRowLogic(CardRows cardRowRef) 
+void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck) 
 {
     //Looping while the player enters a number between 1 and 5
     while (playerChoice > 0 || playerChoice <= 5)
@@ -161,6 +161,28 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef)
             cout << "Your card is: " << playerHand.back().getValue() << " of " << playerHand.back().getSuit() << endl;
         }
 
+        do
+        {
+            cout << "New card? Enter Y for yes and N for no: ";
+
+            cin >> newCard;
+
+            if (newCard == "Y")
+            {
+                playerHand.pop_back();
+
+                playerHand.push_back(cardRowRefDeck.cardDeck.back());
+            }
+            //Displaying an error if the player doesn't enter a Y or N
+            if (newCard != "Y" && newCard != "N")
+            {
+                cout << "ERROR!! Please enter Y or N " << endl;
+            }
+            //Looping if the player doesn't type a Y or N
+        } while (newCard != "Y" && newCard != "N");
+
+        cout << endl;
+
         cout << "Choose a card: ";
 
         cin >> playerChoice;
@@ -173,5 +195,17 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef)
             break;
         }
 
+    }
+}
+
+
+void Gameplay::addToCardPile(Deck sourceDeck) 
+{
+    for (size_t i = 0; i < 17; i++)
+    {
+        //Adding cards to the stock pile
+        cardPile.push_back(sourceDeck.cardDeck.back());
+
+        sourceDeck.cardDeck.pop_back();
     }
 }
