@@ -4,10 +4,131 @@ using namespace std;
 Gameplay::Gameplay(){}
 
 
+void Gameplay::addToCardPile(Deck sourceDeck)
+{
+    for (size_t i = 0; i < 17; i++)
+    {
+        //Adding cards to the stock pile
+        cardPile.push_back(sourceDeck.cardDeck.back());
+
+        sourceDeck.cardDeck.pop_back();
+    }
+}
+
 void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck) 
 {
+    cout << endl;
+    cout << endl;
+
+
+    loopAgain:
+
+    do
+    {
+        cout << endl;
+
+        //Checking if card value matches card name
+        if (playerHand.back().getValue() == 0)
+        {
+            playerHand.back().setValue(1);
+
+            cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
+        }
+        else if (playerHand.back().getValue() == 1)
+        {
+            cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
+        }
+        else if (playerHand.back().getValue() == 11)
+        {
+            cout << "Your card is: " << "Jack" << " of " << playerHand.back().getSuit() << endl;
+        }
+        else if (playerHand.back().getValue() == 12)
+        {
+            cout << "Your card is: " << "Queen" << " of " << playerHand.back().getSuit() << endl;
+        }
+        else if (playerHand.back().getValue() == 13)
+        {
+            cout << "Your card is: " << "King" << " of " << playerHand.back().getSuit() << endl;
+        }
+        else
+        {
+            cout << "Your card is: " << playerHand.back().getValue() << " of " << playerHand.back().getSuit() << endl;
+        }
+
+        do
+        {
+            cout << "New card? Enter Y for yes and N for no: ";
+
+            cin >> newCard;
+
+            while (newCard == "Y")
+            {
+                //Replacing the player's starting card
+                playerHand.pop_back();
+
+                playerHand.push_back(cardPile.back());
+
+                cardPile.pop_back();
+
+                cout << endl;
+
+                if (playerHand.back().getValue() == 0)
+                {
+                    playerHand.back().setValue(1);
+
+                    cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
+                }
+                else if (playerHand.back().getValue() == 1)
+                {
+                    cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
+                }
+                else if (playerHand.back().getValue() == 11)
+                {
+                    cout << "Your card is: " << "Jack" << " of " << playerHand.back().getSuit() << endl;
+                }
+                else if (playerHand.back().getValue() == 12)
+                {
+                    cout << "Your card is: " << "Queen" << " of " << playerHand.back().getSuit() << endl;
+                }
+                else if (playerHand.back().getValue() == 13)
+                {
+                    cout << "Your card is: " << "King" << " of " << playerHand.back().getSuit() << endl;
+                }
+                else
+                {
+                    cout << "Your card is: " << playerHand.back().getValue() << " of " << playerHand.back().getSuit() << endl;
+                }
+
+                cout << "New card? Enter Y for yes and N for no: ";
+
+                cin >> newCard;
+            }
+
+            //Displaying an error if the player doesn't enter a Y or N
+            if (newCard != "Y" && newCard != "N")
+            {
+                cout << "ERROR!! Please enter Y or N " << endl;
+            }
+
+            //Looping if the player doesn't type a Y or N
+        } while (newCard != "Y" && newCard != "N");
+
+        cout << "Choose a card: ";
+
+        cin >> playerChoice;
+
+        //Displaying an error if the player doesn't enter a number between 1 and 5
+        if (playerChoice > 5 || playerChoice == 0)
+        {
+            cout << endl;
+
+            cout << "ERROR!! Please enter a number between 1 and 5" << endl;
+        }
+    //Looping as long as the player types a number from 1 to 5
+    } while (playerChoice > 5 || playerChoice == 0);
+
     //Looping while the player enters a number between 1 and 5
-    while (playerChoice > 0 || playerChoice <= 5)
+    while (playerChoice > 0 && playerChoice <= 5)
     {
         //Checking what card (playerChoice) and row (playerChoiceRow) the player choice
         if (playerChoice == 5)
@@ -27,6 +148,8 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
                 cardRowRef.displayCards();
 
                 cout << endl;
+
+                loopAgain;
             }
             else
             {
@@ -54,7 +177,7 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
                 cout << endl;
             }
         }
-        else if(playerChoice == 3)
+        else if (playerChoice == 3)
         {
             if (playerHand.back().getValue() == cardRowRef.fifthRow[2].getValue() + 1 || playerHand.back().getValue() == cardRowRef.fifthRow[2].getValue() - 1)
             {
@@ -67,6 +190,8 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
                 cardRowRef.fifthLength--;
 
                 cardRowRef.displayCards();
+
+
 
                 cout << endl;
             }
@@ -130,82 +255,15 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
             }
         }
 
-
-        cout << endl;
-
-        //Checking if card value matches card name
-        if (playerHand.back().getValue() == 0)
-        {
-            playerHand.back().setValue(1);
-
-            cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
-        }
-        else if (playerHand.back().getValue() == 1)
-        {
-            cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
-        }
-        else if (playerHand.back().getValue() == 11)
-        {
-            cout << "Your card is: " << "Jack" << " of " << playerHand.back().getSuit() << endl;
-        }
-        else if (playerHand.back().getValue() == 12)
-        {
-            cout << "Your card is: " << "Queen" << " of " << playerHand.back().getSuit() << endl;
-        }
-        else if (playerHand.back().getValue() == 13)
-        {
-            cout << "Your card is: " << "King" << " of " << playerHand.back().getSuit() << endl;
-        }
-        else
-        {
-            cout << "Your card is: " << playerHand.back().getValue() << " of " << playerHand.back().getSuit() << endl;
-        }
-
-        do
-        {
-            cout << "New card? Enter Y for yes and N for no: ";
-
-            cin >> newCard;
-
-            if (newCard == "Y")
-            {
-                playerHand.pop_back();
-
-                playerHand.push_back(cardRowRefDeck.cardDeck.back());
-            }
-            //Displaying an error if the player doesn't enter a Y or N
-            if (newCard != "Y" && newCard != "N")
-            {
-                cout << "ERROR!! Please enter Y or N " << endl;
-            }
-            //Looping if the player doesn't type a Y or N
-        } while (newCard != "Y" && newCard != "N");
-
-        cout << endl;
-
-        cout << "Choose a card: ";
-
-        cin >> playerChoice;
-
-        cout << endl;
-
         //Checking if the vector is empty
         if (cardRowRef.fifthLength == 0)
         {
             break;
         }
-
     }
+
+
+   
 }
 
 
-void Gameplay::addToCardPile(Deck sourceDeck) 
-{
-    for (size_t i = 0; i < 17; i++)
-    {
-        //Adding cards to the stock pile
-        cardPile.push_back(sourceDeck.cardDeck.back());
-
-        sourceDeck.cardDeck.pop_back();
-    }
-}

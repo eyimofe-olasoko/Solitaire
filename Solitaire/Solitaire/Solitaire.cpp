@@ -30,121 +30,18 @@ int main()
 
     //Displaying card rows
     playingCards.displayCards();
-       
+
     //Adding a starting card to the playerHand
     Game.playerHand.push_back(solitaireDeck.cardDeck.back());
     solitaireDeck.cardDeck.pop_back();
 
+
+    //Functions
+    
     //Adding cards to the card pile
     Game.addToCardPile(solitaireDeck);
 
-    do
-    {
+    //Running the game
+    Game.fifthRowLogic(playingCards, solitaireDeck);
 
-        cout << endl;
-
-        cout << endl;
-
-
-        //Checking if card value matches card name
-        if (Game.playerHand.back().getValue() == 0)
-        {
-            Game.playerHand.back().setValue(1);
-
-            cout << "Your card is: " << "Ace" << " of " << Game.playerHand.back().getSuit() << endl;
-        }
-        else if (Game.playerHand.back().getValue() == 1)
-        {
-            cout << "Your card is: " << "Ace" << " of " << Game.playerHand.back().getSuit() << endl;
-        }
-        else if (Game.playerHand.back().getValue() == 11)
-        {
-            cout << "Your card is: " << "Jack" << " of " << Game.playerHand.back().getSuit() << endl;
-        }
-        else if (Game.playerHand.back().getValue() == 12)
-        {
-            cout << "Your card is: " << "Queen" << " of " << Game.playerHand.back().getSuit() << endl;
-        }
-        else if (Game.playerHand.back().getValue() == 13)
-        {
-            cout << "Your card is: " << "King" << " of " << Game.playerHand.back().getSuit() << endl;
-        }
-        else
-        {
-            cout << "Your card is: " << Game.playerHand.back().getValue() << " of " << Game.playerHand.back().getSuit() << endl;
-        }
-
-
-        do
-        {
-            cout << "New card? Enter Y for yes and N for no: ";
-
-            cin >> Game.newCard;
-
-            if (Game.newCard == "Y")
-            {
-                Game.playerHand.pop_back();
-
-                Game.playerHand.push_back(solitaireDeck.cardDeck.back());
-            }
-            //Displaying an error if the player doesn't enter a Y or N
-            if (Game.newCard != "Y" && Game.newCard != "N")
-            {
-                cout << "ERROR!! Please enter Y or N " << endl;
-            }
-        //Looping if the player doesn't type a Y or N
-        } while (Game.newCard != "Y" && Game.newCard != "N");
-       
-
-        cout << endl;
-
-        //Checking if card value matches card name
-        if (Game.playerHand.back().getValue() == 0)
-        {
-            Game.playerHand.back().setValue(1);
-
-            cout << "Your card is: " << "Ace" << " of " << Game.playerHand.back().getSuit() << endl;
-        }
-        else if (Game.playerHand.back().getValue() == 1)
-        {
-            cout << "Your card is: " << "Ace" << " of " << Game.playerHand.back().getSuit() << endl;
-        }
-        else if (Game.playerHand.back().getValue() == 11)
-        {
-            cout << "Your card is: " << "Jack" << " of " << Game.playerHand.back().getSuit() << endl;
-        }
-        else if (Game.playerHand.back().getValue() == 12)
-        {
-            cout << "Your card is: " << "Queen" << " of " << Game.playerHand.back().getSuit() << endl;
-        }
-        else if (Game.playerHand.back().getValue() == 13)
-        {
-            cout << "Your card is: " << "King" << " of " << Game.playerHand.back().getSuit() << endl;
-        }
-        else
-        {
-            cout << "Your card is: " << Game.playerHand.back().getValue() << " of " << Game.playerHand.back().getSuit() << endl;
-        }
-
-        cout << "Choose a card: ";
-
-        cin >> Game.playerChoice;
-
-        cout << endl;
-
-
-        //Displaying an error if the player doesn't enter a number between 1 and 5
-        if (Game.playerChoice > 5 || Game.playerChoice == 0)
-        {
-            cout << "ERROR!! Please enter a number between 1 and 5";
-        }
-
-        //Running the game
-        Game.fifthRowLogic(playingCards, solitaireDeck);
-
-
-    //Looping as long as the player types a number from 1 to 5
-    } while (Game.playerChoice > 5 || Game.playerChoice == 0);
 }
-
-
