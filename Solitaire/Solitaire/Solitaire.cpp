@@ -37,11 +37,14 @@ int main()
 
 
     //Functions
-    
+
     //Adding cards to the card pile
     Game.addToCardPile(solitaireDeck);
 
     //Running the game
     Game.fifthRowLogic(playingCards, solitaireDeck);
+
+
+
 
 }

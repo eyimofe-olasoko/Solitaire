@@ -21,7 +21,7 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
     cout << endl;
 
 
-    loopAgain:
+loop:
 
     do
     {
@@ -69,6 +69,10 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
                 playerHand.push_back(cardPile.back());
 
                 cardPile.pop_back();
+
+                cardRowRef.displayCards();
+
+                cout << endl;
 
                 cout << endl;
 
@@ -149,15 +153,19 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
                 cout << endl;
 
-                loopAgain;
+                //Looping back to the first do/while loop
+                goto loop;
             }
             else
             {
+
                 cout << endl;
 
                 cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
 
                 cout << endl;
+
+                goto loop;
             }
         }
         else if (playerChoice == 4)
@@ -175,6 +183,8 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
                 cardRowRef.displayCards();
 
                 cout << endl;
+
+                goto loop;
             }
         }
         else if (playerChoice == 3)
@@ -191,9 +201,9 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
                 cardRowRef.displayCards();
 
-
-
                 cout << endl;
+
+                goto loop;
             }
             else
             {
@@ -202,6 +212,8 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
                 cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
 
                 cout << endl;
+
+                goto loop;
             }
         }
         else if (playerChoice == 2)
@@ -219,6 +231,8 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
                 cardRowRef.displayCards();
 
                 cout << endl;
+
+                goto loop;
             }
             else
             {
@@ -227,11 +241,13 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
                 cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
 
                 cout << endl;
+
+                goto loop;
             }
         }
         else if (playerChoice == 1)
         {
-            if (playerHand.back().getValue() == cardRowRef.fifthRow.back().getValue() + 1 || playerHand.back().getValue() == cardRowRef.fifthRow.back().getValue() - 1)
+            if (playerHand.back().getValue() == cardRowRef.fifthRow[0].getValue() + 1 || playerHand.back().getValue() == cardRowRef.fifthRow[0].getValue() - 1)
             {
                 //Adding the playerChoice card to their hand
                 playerHand.push_back(cardRowRef.fifthRow[0]);
@@ -244,6 +260,8 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
                 cardRowRef.displayCards();
 
                 cout << endl;
+
+                goto loop;
             }
             else
             {
@@ -252,6 +270,8 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
                 cout << "Sorry!! the value of the card must be 1 below or 1 above your starting card!" << endl;
 
                 cout << endl;
+
+                goto loop;
             }
         }
 
