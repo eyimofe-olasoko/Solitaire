@@ -26,5 +26,7 @@ public:
 	void addToCardPile(Deck sourceDeck);
 
 	string newCard = "";
+
+	int playerScore = 0;
 };
 

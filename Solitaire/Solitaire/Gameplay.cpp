@@ -23,14 +23,11 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
 loop:
 
-    
-
     do
     {
         //Checking if the vector is empty
         if (cardRowRef.fifthLength == 0)
         {
-
             cout << "First row complete!!" << endl;
 
             break;
