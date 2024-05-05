@@ -23,8 +23,28 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
 loop:
 
+    
+
     do
     {
+        //Checking if the vector is empty
+        if (cardRowRef.fifthLength == 0)
+        {
+
+            cout << "First row complete!!" << endl;
+
+            break;
+        }
+        //Checking if cardPile has been used up by the player.
+        else if (cardPile.size() == 0)
+        {
+            cout << "You lose!!" << endl;
+
+            cout << "Your score is: " << playerScore << endl;
+
+            break;
+        }
+
         cout << endl;
 
         //Checking if card value matches card name
@@ -57,6 +77,8 @@ loop:
 
         do
         {
+            cout << endl;
+
             cout << "New card? Enter Y for yes and N for no: ";
 
             cin >> newCard;
@@ -71,8 +93,6 @@ loop:
                 cardPile.pop_back();
 
                 cardRowRef.displayCards();
-
-                cout << endl;
 
                 cout << endl;
 
@@ -102,6 +122,8 @@ loop:
                 {
                     cout << "Your card is: " << playerHand.back().getValue() << " of " << playerHand.back().getSuit() << endl;
                 }
+
+                cout << endl;
 
                 cout << "New card? Enter Y for yes and N for no: ";
 
@@ -149,6 +171,9 @@ loop:
                 //Decrementing the vector length by one 
                 cardRowRef.fifthLength--;
 
+                //Increasing playerScore 
+                playerScore++;
+
                 cardRowRef.displayCards();
 
                 cout << endl;
@@ -180,6 +205,9 @@ loop:
                 //Decrementing the vector length by one 
                 cardRowRef.fifthLength--;
 
+                //Increasing playerScore 
+                playerScore++;
+
                 cardRowRef.displayCards();
 
                 cout << endl;
@@ -198,6 +226,9 @@ loop:
 
                 //Decrementing the vector length by one 
                 cardRowRef.fifthLength--;
+
+                //Increasing playerScore 
+                playerScore++;
 
                 cardRowRef.displayCards();
 
@@ -228,6 +259,9 @@ loop:
                 //Decrementing the vector length by one 
                 cardRowRef.fifthLength--;
 
+                //Increasing playerScore 
+                playerScore++;
+
                 cardRowRef.displayCards();
 
                 cout << endl;
@@ -257,6 +291,9 @@ loop:
                 //Decrementing the vector length by one 
                 cardRowRef.fifthLength--;
 
+                //Increasing playerScore 
+                playerScore++;
+
                 cardRowRef.displayCards();
 
                 cout << endl;
@@ -274,16 +311,7 @@ loop:
                 goto loop;
             }
         }
-
-        //Checking if the vector is empty
-        if (cardRowRef.fifthLength == 0)
-        {
-            break;
-        }
     }
-
-
-   
 }
 
 
