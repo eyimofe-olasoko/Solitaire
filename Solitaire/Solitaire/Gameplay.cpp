@@ -6,7 +6,7 @@ Gameplay::Gameplay(){}
 
 void Gameplay::addToCardPile(Deck sourceDeck)
 {
-    for (size_t i = 0; i < 17; i++)
+    for (size_t i = 0; i < 27; i++)
     {
         //Adding cards to the stock pile
         cardPile.push_back(sourceDeck.cardDeck.back());

@@ -27,7 +27,5 @@ public:
     int thirdLength = 5;
     int fourthLength = 5;
     int fifthLength = 5;
-
-    
 };
 
