@@ -12,7 +12,7 @@ public:
 	void firstRowLogic();
 	void secondRowLogic();
 	void thirdRowLogic();
-	void fourthRowLogic();
+	void fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck);
 	void fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck);
 
 	int playerChoice = 0;

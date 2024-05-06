@@ -35,7 +35,6 @@ int main()
     Game.playerHand.push_back(solitaireDeck.cardDeck.back());
     solitaireDeck.cardDeck.pop_back();
 
-
     //Functions
 
     //Adding cards to the card pile
@@ -43,8 +42,6 @@ int main()
 
     //Running the game
     Game.fifthRowLogic(playingCards, solitaireDeck);
-
-
-
+    Game.fourthRowLogic(playingCards, solitaireDeck);
 
 }
