@@ -43,5 +43,8 @@ int main()
     //Running the game
     Game.fifthRowLogic(playingCards, solitaireDeck);
     Game.fourthRowLogic(playingCards, solitaireDeck);
+    Game.thirdRowLogic(playingCards, solitaireDeck);
+    Game.secondRowLogic(playingCards, solitaireDeck);
+    Game.firstRowLogic(playingCards, solitaireDeck);
 
 }
