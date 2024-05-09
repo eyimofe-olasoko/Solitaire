@@ -6,7 +6,7 @@ Gameplay::Gameplay(){}
 
 void Gameplay::addToCardPile(Deck sourceDeck)
 {
-    for (size_t i = 0; i < 27; i++)
+    for (size_t i = 0; i < 26; i++)
     {
         //Adding cards to the stock pile
         cardPile.push_back(sourceDeck.cardDeck.back());
@@ -28,12 +28,15 @@ loop:
         //Checking if the vector is empty
         if (cardRowRef.fifthLength == 0)
         {
+            cardRowRef.fifthLength = 1;
+
             cout << "First row complete!!" << endl;
 
             break;
         }
+
         //Checking if cardPile has been used up by the player.
-        else if (cardPile.size() == 0)
+        if (cardPile.size() == 0)
         {
             cout << "You lose!!" << endl;
 
@@ -289,7 +292,7 @@ loop:
 
                 //Decrementing the vector length by one 
                 cardRowRef.fifthLength--;
-
+                
                 //Increasing playerScore 
                 playerScore++;
 
