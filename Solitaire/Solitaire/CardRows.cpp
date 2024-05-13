@@ -162,32 +162,36 @@
 
         for (size_t i = 0; i < fifthLength; i++)
         {
-            if (fifthRow[i].getValue() == 0)
+            if (fifthLength > 0)
             {
-                fifthRow[i].setValue(1);
+                if (fifthRow[i].getValue() == 0)
+                {
+                    fifthRow[i].setValue(1);
 
-                cout << "Ace" << " of " << fifthRow[i].getSuit() << " | ";
+                    cout << "Ace" << " of " << fifthRow[i].getSuit() << " | ";
+                }
+                else if (fifthRow[i].getValue() == 1)
+                {
+                    cout << "Ace" << " of " << fifthRow[i].getSuit() << " | ";
+                }
+                else if (fifthRow[i].getValue() == 11)
+                {
+                    cout << "Jack" << " of " << fifthRow[i].getSuit() << " | ";
+                }
+                else if (fifthRow[i].getValue() == 12)
+                {
+                    cout << "Queen" << " of " << fifthRow[i].getSuit() << " | ";
+                }
+                else if (fifthRow[i].getValue() == 13)
+                {
+                    cout << "King" << " of " << fifthRow[i].getSuit() << " | ";
+                }
+                else
+                {
+                    cout << fifthRow[i].getValue() << " of " << fifthRow[i].getSuit() << " | ";
+                }
             }
-            else if (fifthRow[i].getValue() == 1)
-            {
-                cout << "Ace" << " of " << fifthRow[i].getSuit() << " | ";
-            }
-            else if (fifthRow[i].getValue() == 11)
-            {
-                cout << "Jack" << " of " << fifthRow[i].getSuit() << " | ";
-            }
-            else if (fifthRow[i].getValue() == 12)
-            {
-                cout << "Queen" << " of " << fifthRow[i].getSuit() << " | ";
-            }
-            else if (fifthRow[i].getValue() == 13)
-            {
-                cout << "King" << " of " << fifthRow[i].getSuit() << " | ";
-            }
-            else
-            {
-                cout << fifthRow[i].getValue() << " of " << fifthRow[i].getSuit() << " | ";
-            }
+            
         }
     }
 
