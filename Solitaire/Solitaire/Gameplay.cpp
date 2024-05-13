@@ -337,7 +337,7 @@ loop:
 void Gameplay::fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck) 
 {
     
-
+    //Only running the code if the player has not depleted the cardPile vector
     if (cardPile.size() != 1)
     {
         cout << endl;
