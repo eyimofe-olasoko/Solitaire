@@ -29,9 +29,11 @@ loop:
         //Checking if the vector is empty
         if (cardRowRef.fifthLength == 1)
         {
-            cardRowRef.fifthLength = 1;
+            //cout << "First row complete!!" << endl;
 
-            cout << "First row complete!!" << endl;
+            cardRowRef.fifthLength = 5;
+
+            cout << "CODE RUNNING" << endl;
 
             break;
         }
@@ -292,32 +294,29 @@ loop:
         {
             if (playerHand.back().getValue() == cardRowRef.fifthRow[0].getValue() + 1 || playerHand.back().getValue() == cardRowRef.fifthRow[0].getValue() - 1)
             {
-                if (cardRowRef.fifthLength != 1)
+                if (cardRowRef.fifthLength == 1)
                 {
-                    //Adding the playerChoice card to their hand
-                    playerHand.push_back(cardRowRef.fifthRow[0]);
-
-                    cardRowRef.fifthRow.erase(cardRowRef.fifthRow.begin());
-
-                    //Decrementing the vector length by one     
-                    cardRowRef.fifthLength--;
-
-                    //Increasing playerScore 
-                    playerScore++;
-
-                    cardRowRef.displayCards();
-
-                    cout << endl;
+                    cardRowRef.fifthLength = 5;
 
                     goto loop;
                 }
-                else 
-                {
-                    //Adding the playerChoice card to their hand
-                    playerHand.push_back(cardRowRef.fifthRow[0]);
 
-                    goto loop;
-                }
+                //Adding the playerChoice card to their hand
+                playerHand.push_back(cardRowRef.fifthRow[0]);
+
+                cardRowRef.fifthRow.erase(cardRowRef.fifthRow.begin());
+
+                //Decrementing the vector length by one     
+                cardRowRef.fifthLength--;
+
+                //Increasing playerScore 
+                playerScore++;
+
+                cardRowRef.displayCards();
+
+                cout << endl;
+
+                goto loop;
                 
             }
             else

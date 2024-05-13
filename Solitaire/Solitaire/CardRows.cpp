@@ -162,7 +162,7 @@
 
         for (size_t i = 0; i < fifthLength; i++)
         {
-            if (fifthLength > 0)
+            if (fifthLength > 1)
             {
                 if (fifthRow[i].getValue() == 0)
                 {
@@ -191,7 +191,11 @@
                     cout << fifthRow[i].getValue() << " of " << fifthRow[i].getSuit() << " | ";
                 }
             }
-            
+            else 
+            {
+                cout << "Row Complete!" << endl;
+            }
+           
         }
     }
 
