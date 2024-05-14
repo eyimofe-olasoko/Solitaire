@@ -1221,7 +1221,7 @@ void Gameplay::firstRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
         cardRowRef.fifthLength = 1;
         cardRowRef.fourthLength = 1;
         cardRowRef.thirdLength = 1;
-        cardRowRef.secondRow = 1;
+        cardRowRef.secondLength = 1;
 
         cout << endl;
         cout << endl;

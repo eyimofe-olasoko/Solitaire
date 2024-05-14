@@ -34,95 +34,118 @@
         //Displaying all the card rows and changing the card values to match card names
         for (size_t i = 0; i < firstLength; i++)
         {
-            if (firstRow[i].getValue() == 0)
+            if (firstLength == 1)
             {
-                firstRow[i].setValue(1);
+                cout << "--------------------------ROW COMPLETE--------------------------" << endl;
+            }
+            else 
+            {
+                if (firstRow[i].getValue() == 0)
+                {
+                    firstRow[i].setValue(1);
 
-                cout << "Ace" << " of " << firstRow[i].getSuit() << " | ";
+                    cout << "Ace" << " of " << firstRow[i].getSuit() << " | ";
+                }
+                else if (firstRow[i].getValue() == 1)
+                {
+                    cout << "Ace" << " of " << firstRow[i].getSuit() << " | ";
+                }
+                else if (firstRow[i].getValue() == 11)
+                {
+                    cout << "Jack" << " of " << firstRow[i].getSuit() << " | ";
+                }
+                else if (firstRow[i].getValue() == 12)
+                {
+                    cout << "Queen" << " of " << firstRow[i].getSuit() << " | ";
+                }
+                else if (firstRow[i].getValue() == 13)
+                {
+                    cout << "King" << " of " << firstRow[i].getSuit() << " | ";
+                }
+                else
+                {
+                    cout << firstRow[i].getValue() << " of " << firstRow[i].getSuit() << " | ";
+                }
             }
-            else if (firstRow[i].getValue() == 1)
-            {
-                cout << "Ace" << " of " << firstRow[i].getSuit() << " | ";
-            }
-            else if (firstRow[i].getValue() == 11)
-            {
-                cout << "Jack" << " of " << firstRow[i].getSuit() << " | ";
-            }
-            else if (firstRow[i].getValue() == 12)
-            {
-                cout << "Queen" << " of " << firstRow[i].getSuit() << " | ";
-            }
-            else if (firstRow[i].getValue() == 13)
-            {
-                cout << "King" << " of " << firstRow[i].getSuit() << " | ";
-            }
-            else
-            {
-                cout << firstRow[i].getValue() << " of " << firstRow[i].getSuit() << " | ";
-            }
+            
         }
 
         cout << endl;
 
         for (size_t i = 0; i < secondLength; i++)
         {
-            if (secondRow[i].getValue() == 0)
+            if (secondLength == 1)
             {
-                secondRow[i].setValue(1);
+                cout << "--------------------------ROW COMPLETE--------------------------" << endl;
+            }
+            else 
+            {
+                if (secondRow[i].getValue() == 0)
+                {
+                    secondRow[i].setValue(1);
 
-                cout << "Ace" << " of " << secondRow[i].getSuit() << " | ";
+                    cout << "Ace" << " of " << secondRow[i].getSuit() << " | ";
+                }
+                else if (secondRow[i].getValue() == 1)
+                {
+                    cout << "Ace" << " of " << secondRow[i].getSuit() << " | ";
+                }
+                else if (secondRow[i].getValue() == 11)
+                {
+                    cout << "Jack" << " of " << secondRow[i].getSuit() << " | ";
+                }
+                else if (secondRow[i].getValue() == 12)
+                {
+                    cout << "Queen" << " of " << secondRow[i].getSuit() << " | ";
+                }
+                else if (secondRow[i].getValue() == 13)
+                {
+                    cout << "King" << " of " << secondRow[i].getSuit() << " | ";
+                }
+                else
+                {
+                    cout << secondRow[i].getValue() << " of " << secondRow[i].getSuit() << " | ";
+                }
             }
-            else if (secondRow[i].getValue() == 1)
-            {
-                cout << "Ace" << " of " << secondRow[i].getSuit() << " | ";
-            }
-            else if (secondRow[i].getValue() == 11)
-            {
-                cout << "Jack" << " of " << secondRow[i].getSuit() << " | ";
-            }
-            else if (secondRow[i].getValue() == 12)
-            {
-                cout << "Queen" << " of " << secondRow[i].getSuit() << " | ";
-            }
-            else if (secondRow[i].getValue() == 13)
-            {
-                cout << "King" << " of " << secondRow[i].getSuit() << " | ";
-            }
-            else
-            {
-                cout << secondRow[i].getValue() << " of " << secondRow[i].getSuit() << " | ";
-            }
+            
         }
 
         cout << endl;
 
         for (size_t i = 0; i < thirdLength; i++)
         {
-            if (thirdRow[i].getValue() == 0)
+            if (thirdLength == 1)
             {
-                thirdRow[i].setValue(1);
+                cout << "--------------------------ROW COMPLETE--------------------------" << endl;
+            }
+            else 
+            {
+                if (thirdRow[i].getValue() == 0)
+                {
+                    thirdRow[i].setValue(1);
 
-                cout << "Ace" << " of " << thirdRow[i].getSuit() << " | ";
-            }
-            else if (thirdRow[i].getValue() == 1)
-            {
-                cout << "Ace" << " of " << thirdRow[i].getSuit() << " | ";
-            }
-            else if (thirdRow[i].getValue() == 11)
-            {
-                cout << "Jack" << " of " << thirdRow[i].getSuit() << " | ";
-            }
-            else if (thirdRow[i].getValue() == 12)
-            {
-                cout << "Queen" << " of " << thirdRow[i].getSuit() << " | ";
-            }
-            else if (thirdRow[i].getValue() == 13)
-            {
-                cout << "King" << " of " << thirdRow[i].getSuit() << " | ";
-            }
-            else
-            {
-                cout << thirdRow[i].getValue() << " of " << thirdRow[i].getSuit() << " | ";
+                    cout << "Ace" << " of " << thirdRow[i].getSuit() << " | ";
+                }
+                else if (thirdRow[i].getValue() == 1)
+                {
+                    cout << "Ace" << " of " << thirdRow[i].getSuit() << " | ";
+                }
+                else if (thirdRow[i].getValue() == 11)
+                {
+                    cout << "Jack" << " of " << thirdRow[i].getSuit() << " | ";
+                }
+                else if (thirdRow[i].getValue() == 12)
+                {
+                    cout << "Queen" << " of " << thirdRow[i].getSuit() << " | ";
+                }
+                else if (thirdRow[i].getValue() == 13)
+                {
+                    cout << "King" << " of " << thirdRow[i].getSuit() << " | ";
+                }
+                else
+                {
+                    cout << thirdRow[i].getValue() << " of " << thirdRow[i].getSuit() << " | ";
+                }
             }
         }
 
@@ -130,32 +153,40 @@
 
         for (size_t i = 0; i < fourthLength; i++)
         {
-            if (fourthRow[i].getValue() == 0)
+            if (fourthLength == 1)
             {
-                fourthRow[i].setValue(1);
+                cout << "--------------------------ROW COMPLETE--------------------------" << endl;
+            }
+            else 
+            {
+                if (fourthRow[i].getValue() == 0)
+                {
+                    fourthRow[i].setValue(1);
 
-                cout << "Ace" << " of " << fourthRow[i].getSuit() << " | ";
+                    cout << "Ace" << " of " << fourthRow[i].getSuit() << " | ";
+                }
+                else if (fourthRow[i].getValue() == 1)
+                {
+                    cout << "Ace" << " of " << fourthRow[i].getSuit() << " | ";
+                }
+                else if (fourthRow[i].getValue() == 11)
+                {
+                    cout << "Jack" << " of " << fourthRow[i].getSuit() << " | ";
+                }
+                else if (fourthRow[i].getValue() == 12)
+                {
+                    cout << "Queen" << " of " << fourthRow[i].getSuit() << " | ";
+                }
+                else if (fourthRow[i].getValue() == 13)
+                {
+                    cout << "King" << " of " << fourthRow[i].getSuit() << " | ";
+                }
+                else
+                {
+                    cout << fourthRow[i].getValue() << " of " << fourthRow[i].getSuit() << " | ";
+                }
             }
-            else if (fourthRow[i].getValue() == 1)
-            {
-                cout << "Ace" << " of " << fourthRow[i].getSuit() << " | ";
-            }
-            else if (fourthRow[i].getValue() == 11)
-            {
-                cout << "Jack" << " of " << fourthRow[i].getSuit() << " | ";
-            }
-            else if (fourthRow[i].getValue() == 12)
-            {
-                cout << "Queen" << " of " << fourthRow[i].getSuit() << " | ";
-            }
-            else if (fourthRow[i].getValue() == 13)
-            {
-                cout << "King" << " of " << fourthRow[i].getSuit() << " | ";
-            }
-            else
-            {
-                cout << fourthRow[i].getValue() << " of " << fourthRow[i].getSuit() << " | ";
-            }
+            
         }
 
         cout << endl;
@@ -192,7 +223,7 @@
                 }
                 else
                 {
-                    cout << fifthLength << " - " << fifthRow[i].getValue() << " of " << fifthRow[i].getSuit() << " | ";
+                    cout << fifthRow[i].getValue() << " of " << fifthRow[i].getSuit() << " | ";
                 }
             }
             
