@@ -50,7 +50,6 @@ void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 {
     cout << endl;
     cout << endl;
-
 loop:
 
     do
@@ -100,8 +99,6 @@ loop:
                 }
                 else 
                 {
-                    cout << "BRKOEIIDJIASJD" << endl;
-
                     goto loop;
                 }
 
@@ -330,7 +327,6 @@ void Gameplay::fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
         do
         {
-
             if (cardPile.size() == 1)
             {
                 cout << endl;
@@ -363,12 +359,21 @@ void Gameplay::fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
                 while (newCard == "Y")
                 {
-                    //Replacing the player's starting card
-                    playerHand.pop_back();
+                    //Checking if cardPile has been used up by the player.
+                    if (cardPile.size() > 1)
+                    {
+                        //Replacing the player's starting card
+                        playerHand.pop_back();
 
-                    playerHand.push_back(cardPile.back());
+                        playerHand.push_back(cardPile.back());
 
-                    cardPile.pop_back();
+                        cardPile.pop_back();
+
+                    }
+                    else
+                    {
+                        goto loop;
+                    }
 
                     cardRowRef.displayCards();
 
@@ -546,7 +551,7 @@ void Gameplay::fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
                         cardRowRef.fourthRow.erase(cardRowRef.fourthRow.begin());
 
                         //Decrementing the vector length by one     
-                        cardRowRef.fourthLength --;
+                        cardRowRef.fourthLength--;
 
                         cardRowRef.displayCards();
 
@@ -583,7 +588,7 @@ void Gameplay::fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 void Gameplay::thirdRowLogic(CardRows cardRowRef, Deck cardRowRefDeck) 
 {
 
-    if (cardPile.size() != 1)
+    if (cardPile.size() != 2)
     {
         //Redefing the value of lengths of the vectors is make sure it remains 1
         cardRowRef.fifthLength = 1;
@@ -596,6 +601,7 @@ void Gameplay::thirdRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
         do
         {
+
             if (cardPile.size() == 1)
             {
                 cout << endl;
@@ -607,7 +613,7 @@ void Gameplay::thirdRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
                 //Ending the program
                 exit(0);
             }
-            if (cardRowRef.fourthLength == 1)
+            if (cardRowRef.thirdLength == 1)
             {
                 //Breaking of the loop
                 return;
@@ -653,12 +659,21 @@ void Gameplay::thirdRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
                 while (newCard == "Y")
                 {
-                    //Replacing the player's starting card
-                    playerHand.pop_back();
+                    //Checking if cardPile has been used up by the player.
+                    if (cardPile.size() > 1)
+                    {
+                        //Replacing the player's starting card
+                        playerHand.pop_back();
 
-                    playerHand.push_back(cardPile.back());
+                        playerHand.push_back(cardPile.back());
 
-                    cardPile.pop_back();
+                        cardPile.pop_back();
+
+                    }
+                    else
+                    {
+                        goto loop;
+                    }
 
                     cardRowRef.displayCards();
 
@@ -923,7 +938,7 @@ void Gameplay::secondRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
                 //Ending the program
                 exit(0);
             }
-            if (cardRowRef.fourthLength == 1)
+            if (cardRowRef.secondLength == 1)
             {
                 //Breaking of the loop
                 return;
@@ -969,12 +984,21 @@ void Gameplay::secondRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
                 while (newCard == "Y")
                 {
-                    //Replacing the player's starting card
-                    playerHand.pop_back();
+                    //Checking if cardPile has been used up by the player.
+                    if (cardPile.size() > 1)
+                    {
+                        //Replacing the player's starting card
+                        playerHand.pop_back();
 
-                    playerHand.push_back(cardPile.back());
+                        playerHand.push_back(cardPile.back());
 
-                    cardPile.pop_back();
+                        cardPile.pop_back();
+
+                    }
+                    else
+                    {
+                        goto loop;
+                    }
 
                     cardRowRef.displayCards();
 
@@ -1241,7 +1265,7 @@ void Gameplay::firstRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
                 //Ending the program
                 exit(0);
             }
-            if (cardRowRef.fourthLength == 1)
+            if (cardRowRef.firstLength == 1)
             {
                 //Breaking of the loop
                 return;
@@ -1249,33 +1273,7 @@ void Gameplay::firstRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
             cout << endl;
 
-            //Checking if card value matches card name
-            if (playerHand.back().getValue() == 0)
-            {
-                playerHand.back().setValue(1);
-
-                cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
-            }
-            else if (playerHand.back().getValue() == 1)
-            {
-                cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
-            }
-            else if (playerHand.back().getValue() == 11)
-            {
-                cout << "Your card is: " << "Jack" << " of " << playerHand.back().getSuit() << endl;
-            }
-            else if (playerHand.back().getValue() == 12)
-            {
-                cout << "Your card is: " << "Queen" << " of " << playerHand.back().getSuit() << endl;
-            }
-            else if (playerHand.back().getValue() == 13)
-            {
-                cout << "Your card is: " << "King" << " of " << playerHand.back().getSuit() << endl;
-            }
-            else
-            {
-                cout << "Your card is: " << playerHand.back().getValue() << " of " << playerHand.back().getSuit() << endl;
-            }
+            displayPlayerHand();
 
             do
             {
@@ -1287,12 +1285,20 @@ void Gameplay::firstRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
                 while (newCard == "Y")
                 {
-                    //Replacing the player's starting card
-                    playerHand.pop_back();
+                    //Checking if cardPile has been used up by the player.
+                    if (cardPile.size() > 1)
+                    {
+                        //Replacing the player's starting card
+                        playerHand.pop_back();
 
-                    playerHand.push_back(cardPile.back());
+                        playerHand.push_back(cardPile.back());
 
-                    cardPile.pop_back();
+                        cardPile.pop_back();
+                    }
+                    else
+                    {
+                        goto loop;
+                    }
 
                     cardRowRef.displayCards();
 
@@ -1300,32 +1306,7 @@ void Gameplay::firstRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
                     cout << endl;
 
-                    if (playerHand.back().getValue() == 0)
-                    {
-                        playerHand.back().setValue(1);
-
-                        cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
-                    }
-                    else if (playerHand.back().getValue() == 1)
-                    {
-                        cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
-                    }
-                    else if (playerHand.back().getValue() == 11)
-                    {
-                        cout << "Your card is: " << "Jack" << " of " << playerHand.back().getSuit() << endl;
-                    }
-                    else if (playerHand.back().getValue() == 12)
-                    {
-                        cout << "Your card is: " << "Queen" << " of " << playerHand.back().getSuit() << endl;
-                    }
-                    else if (playerHand.back().getValue() == 13)
-                    {
-                        cout << "Your card is: " << "King" << " of " << playerHand.back().getSuit() << endl;
-                    }
-                    else
-                    {
-                        cout << "Your card is: " << playerHand.back().getValue() << " of " << playerHand.back().getSuit() << endl;
-                    }
+                    displayPlayerHand();
 
                     cout << endl;
 

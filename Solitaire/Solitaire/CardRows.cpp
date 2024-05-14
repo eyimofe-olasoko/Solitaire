@@ -37,6 +37,8 @@
             if (firstLength == 1)
             {
                 cout << "--------------------------ROW COMPLETE--------------------------" << endl;
+
+                cout << "YOU WON!!!" << endl;
             }
             else 
             {
