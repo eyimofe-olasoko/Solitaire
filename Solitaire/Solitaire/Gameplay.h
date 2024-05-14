@@ -14,6 +14,8 @@ public:
 	void fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck);
 	void fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck);
 
+	void displayPlayerHand();
+
 	int playerChoice = 0;
 
 	//Creating a vector to store the card pile that the player can draw from
