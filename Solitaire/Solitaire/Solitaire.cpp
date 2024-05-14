@@ -41,12 +41,10 @@ int main()
     Game.addToCardPile(solitaireDeck);
 
     //Running the game
-   // Game.fifthRowLogic(playingCards, solitaireDeck);
-    //Game.fourthRowLogic(playingCards, solitaireDeck);
-   // Game.thirdRowLogic(playingCards, solitaireDeck);
-    //Game.secondRowLogic(playingCards, solitaireDeck);
-   // Game.firstRowLogic(playingCards, solitaireDeck);
-
-    Game.game(playingCards, solitaireDeck);
+    Game.fifthRowLogic(playingCards, solitaireDeck);
+    Game.fourthRowLogic(playingCards, solitaireDeck);
+    Game.thirdRowLogic(playingCards, solitaireDeck);
+    Game.secondRowLogic(playingCards, solitaireDeck);
+    Game.firstRowLogic(playingCards, solitaireDeck);
 
 }

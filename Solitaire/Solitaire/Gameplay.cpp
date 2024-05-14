@@ -56,7 +56,6 @@ loop:
 
     do
     {
-        //Checking if cardPile has been used up by the player.
         if (cardPile.size() == 1)
         {
             cout << endl;
@@ -65,7 +64,8 @@ loop:
 
             cout << "Your score is: " << playerScore << endl;
 
-            break;
+            //Ending the program
+            exit(0);
         }
 
         cout << endl;
@@ -84,19 +84,22 @@ loop:
             while (newCard == "Y")
             {
                 //Checking if cardPile has been used up by the player.
-                if (cardPile.size() == 1)
+                if (cardPile.size() > 1)
                 {
-                    cout << "OH MY GAWD" << endl;
+                    //Replacing the player's starting card
+                    playerHand.pop_back();
+
+                    playerHand.push_back(cardPile.back());
+
+                    cardPile.pop_back();
+
+                }
+                else 
+                {
+                    cout << "BRKOEIIDJIASJD" << endl;
 
                     goto loop;
                 }
-
-                //Replacing the player's starting card
-                playerHand.pop_back();
-
-                playerHand.push_back(cardPile.back());
-
-                cardPile.pop_back();
 
                 cardRowRef.displayCards();
 
@@ -127,7 +130,7 @@ loop:
         cin >> playerChoice;
 
         //Displaying an error if the player doesn't enter a number between 1 and 5
-        if (playerChoice > 5 && playerChoice == 0)
+        if (playerChoice > 5 || playerChoice == 0)
         {
             cout << endl;
 
@@ -135,10 +138,10 @@ loop:
         }
 
     //Looping as long as the player types a number from 1 to 5
-    } while (playerChoice > 5 && playerChoice == 0);
+    } while (playerChoice > 5 || playerChoice == 0);
 
     //Looping while the player enters a number between 1 and 5
-    while (playerChoice > 0 && playerChoice <= 5)
+    while (playerChoice > 0 || playerChoice <= 5)
     {
         //Checking what card (playerChoice) and row (playerChoiceRow) the player choice
         if (playerChoice == 5)
@@ -305,7 +308,6 @@ loop:
 
 void Gameplay::fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck) 
 {
-    
     //Only running the code if the player has not depleted the cardPile vector
     if (cardPile.size() != 1)
     {
@@ -316,17 +318,6 @@ void Gameplay::fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
         do
         {
-
-            //Checking if cardPile has been used up by the player.
-            if (cardPile.size() == 0)
-            {
-                cout << "You lose!!" << endl;
-
-                cout << "Your score is: " << playerScore << endl;
-
-                break;
-            }
-
             cout << endl;
 
             //Checking if card value matches card name
@@ -1503,34 +1494,5 @@ void Gameplay::firstRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
     }
 }
 
-void Gameplay::game(CardRows cardRowRef, Deck cardRowRefDeck)
-{
 
-    do
-    {
-        cout << endl;
-
-        cout << "Do you want a new card: ";
-
-        cin >> newCard;
-
-        if (newCard != "Y" || newCard != "N")
-        {
-            cout << "Error! Please enter 'Y' OR 'N' " << endl;
-        }
-
-    } while (newCard != "Y" || newCard != "N");
-
-
-
-
-
-
-
-
-
-
-
-
-}
 
