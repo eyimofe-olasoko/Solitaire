@@ -6,7 +6,7 @@ Gameplay::Gameplay(){}
 
 void Gameplay::addToCardPile(Deck sourceDeck)
 {
-    for (size_t i = 0; i < 2; i++)
+    for (size_t i = 0; i < 26; i++)
     {
         //Adding cards to the stock pile
         cardPile.push_back(sourceDeck.cardDeck.back());
@@ -48,7 +48,6 @@ void Gameplay::displayPlayerHand()
 
 void Gameplay::fifthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck) 
 {
-    
     cout << endl;
     cout << endl;
 
@@ -66,6 +65,11 @@ loop:
 
             //Ending the program
             exit(0);
+        }
+        if (cardRowRef.fifthLength == 1)
+        {
+            //Breaking of the loop
+            return;
         }
 
         cout << endl;
@@ -141,7 +145,7 @@ loop:
     } while (playerChoice > 5 || playerChoice == 0);
 
     //Looping while the player enters a number between 1 and 5
-    while (playerChoice > 0 || playerChoice <= 5)
+    while (playerChoice > 0 && playerChoice <= 5)
     {
         //Checking what card (playerChoice) and row (playerChoiceRow) the player choice
         if (playerChoice == 5)
@@ -270,27 +274,32 @@ loop:
         {
             if (playerHand.back().getValue() == cardRowRef.fifthRow[0].getValue() + 1 || playerHand.back().getValue() == cardRowRef.fifthRow[0].getValue() - 1)
             {
-                if (cardRowRef.fifthLength == 1)
+                if (cardRowRef.fifthLength != 1)
                 {
-                    
+                    //Adding the playerChoice card to their hand
+                    playerHand.push_back(cardRowRef.fifthRow[0]);
+
+                    cardRowRef.fifthRow.erase(cardRowRef.fifthRow.begin());
+
+                    //Decrementing the vector length by one     
+                    cardRowRef.fifthLength--;
+
+                    cardRowRef.displayCards();
+
+                    cout << endl;
+
+                    goto loop;
                 }
-                //Adding the playerChoice card to their hand
-                playerHand.push_back(cardRowRef.fifthRow[0]);
+                else 
+                {
+                    //Adding the playerChoice card to their hand
+                    playerHand.push_back(cardRowRef.fifthRow[0]);
 
-                cardRowRef.fifthRow.erase(cardRowRef.fifthRow.begin());
+                    //Increasing playerScore 
+                    playerScore++;
 
-                //Decrementing the vector length by one     
-                cardRowRef.fifthLength--;
-
-                //Increasing playerScore 
-                playerScore++;
-
-                cardRowRef.displayCards();
-
-                cout << endl;
-
-                goto loop;
-                
+                    goto loop;
+                }
             }
             else
             {
@@ -311,6 +320,9 @@ void Gameplay::fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
     //Only running the code if the player has not depleted the cardPile vector
     if (cardPile.size() != 1)
     {
+        //Redefing the value of fifthLength is make sure it remain 1
+        cardRowRef.fifthLength = 1;
+
         cout << endl;
         cout << endl;
 
@@ -318,35 +330,28 @@ void Gameplay::fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
         do
         {
+
+            if (cardPile.size() == 1)
+            {
+                cout << endl;
+
+                cout << "You lose!!" << endl;
+
+                cout << "Your score is: " << playerScore << endl;
+
+                //Ending the program
+                exit(0);
+            }
+            if (cardRowRef.fourthLength == 1)
+            {
+                //Breaking of the loop
+                return;
+            }
+
             cout << endl;
 
             //Checking if card value matches card name
-            if (playerHand.back().getValue() == 0)
-            {
-                playerHand.back().setValue(1);
-
-                cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
-            }
-            else if (playerHand.back().getValue() == 1)
-            {
-                cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
-            }
-            else if (playerHand.back().getValue() == 11)
-            {
-                cout << "Your card is: " << "Jack" << " of " << playerHand.back().getSuit() << endl;
-            }
-            else if (playerHand.back().getValue() == 12)
-            {
-                cout << "Your card is: " << "Queen" << " of " << playerHand.back().getSuit() << endl;
-            }
-            else if (playerHand.back().getValue() == 13)
-            {
-                cout << "Your card is: " << "King" << " of " << playerHand.back().getSuit() << endl;
-            }
-            else
-            {
-                cout << "Your card is: " << playerHand.back().getValue() << " of " << playerHand.back().getSuit() << endl;
-            }
+            displayPlayerHand();
 
             do
             {
@@ -371,32 +376,7 @@ void Gameplay::fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
                     cout << endl;
 
-                    if (playerHand.back().getValue() == 0)
-                    {
-                        playerHand.back().setValue(1);
-
-                        cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
-                    }
-                    else if (playerHand.back().getValue() == 1)
-                    {
-                        cout << "Your card is: " << "Ace" << " of " << playerHand.back().getSuit() << endl;
-                    }
-                    else if (playerHand.back().getValue() == 11)
-                    {
-                        cout << "Your card is: " << "Jack" << " of " << playerHand.back().getSuit() << endl;
-                    }
-                    else if (playerHand.back().getValue() == 12)
-                    {
-                        cout << "Your card is: " << "Queen" << " of " << playerHand.back().getSuit() << endl;
-                    }
-                    else if (playerHand.back().getValue() == 13)
-                    {
-                        cout << "Your card is: " << "King" << " of " << playerHand.back().getSuit() << endl;
-                    }
-                    else
-                    {
-                        cout << "Your card is: " << playerHand.back().getValue() << " of " << playerHand.back().getSuit() << endl;
-                    }
+                    displayPlayerHand();
 
                     cout << endl;
 
@@ -558,22 +538,32 @@ void Gameplay::fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
             {
                 if (playerHand.back().getValue() == cardRowRef.fourthRow[0].getValue() + 1 || playerHand.back().getValue() == cardRowRef.fourthRow[0].getValue() - 1)
                 {
-                    //Adding the playerChoice card to their hand
-                    playerHand.push_back(cardRowRef.fourthRow[0]);
+                    if (cardRowRef.fourthLength != 1)
+                    {
+                        //Adding the playerChoice card to their hand
+                        playerHand.push_back(cardRowRef.fourthRow[0]);
 
-                    cardRowRef.fourthRow.erase(cardRowRef.fourthRow.begin());
+                        cardRowRef.fourthRow.erase(cardRowRef.fourthRow.begin());
 
-                    //Decrementing the vector length by one 
-                    cardRowRef.fourthLength--;
+                        //Decrementing the vector length by one     
+                        cardRowRef.fourthLength --;
 
-                    //Increasing playerScore 
-                    playerScore++;
+                        cardRowRef.displayCards();
 
-                    cardRowRef.displayCards();
+                        cout << endl;
 
-                    cout << endl;
+                        goto loop;
+                    }
+                    else
+                    {
+                        //Adding the playerChoice card to their hand
+                        playerHand.push_back(cardRowRef.fourthRow[0]);
 
-                    goto loop;
+                        //Increasing playerScore 
+                        playerScore++;
+
+                        goto loop;
+                    }
                 }
                 else
                 {
@@ -592,10 +582,13 @@ void Gameplay::fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
 void Gameplay::thirdRowLogic(CardRows cardRowRef, Deck cardRowRefDeck) 
 {
-    
 
     if (cardPile.size() != 1)
     {
+        //Redefing the value of lengths of the vectors is make sure it remains 1
+        cardRowRef.fifthLength = 1;
+        cardRowRef.fourthLength = 1;
+
         cout << endl;
         cout << endl;
 
@@ -603,21 +596,21 @@ void Gameplay::thirdRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
         do
         {
-            //Checking if the vector is empty
-            if (cardRowRef.thirdLength == 0)
+            if (cardPile.size() == 1)
             {
-                cout << "First row complete!!" << endl;
+                cout << endl;
 
-                break;
-            }
-            //Checking if cardPile has been used up by the player.
-            else if (cardPile.size() == 0)
-            {
                 cout << "You lose!!" << endl;
 
                 cout << "Your score is: " << playerScore << endl;
 
-                break;
+                //Ending the program
+                exit(0);
+            }
+            if (cardRowRef.fourthLength == 1)
+            {
+                //Breaking of the loop
+                return;
             }
 
             cout << endl;
@@ -860,22 +853,32 @@ void Gameplay::thirdRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
             {
                 if (playerHand.back().getValue() == cardRowRef.thirdRow[0].getValue() + 1 || playerHand.back().getValue() == cardRowRef.thirdRow[0].getValue() - 1)
                 {
-                    //Adding the playerChoice card to their hand
-                    playerHand.push_back(cardRowRef.thirdRow[0]);
+                    if (cardRowRef.thirdLength != 1)
+                    {
+                        //Adding the playerChoice card to their hand
+                        playerHand.push_back(cardRowRef.thirdRow[0]);
 
-                    cardRowRef.thirdRow.erase(cardRowRef.thirdRow.begin());
+                        cardRowRef.thirdRow.erase(cardRowRef.thirdRow.begin());
 
-                    //Decrementing the vector length by one 
-                    cardRowRef.thirdLength--;
+                        //Decrementing the vector length by one     
+                        cardRowRef.thirdLength--;
 
-                    //Increasing playerScore 
-                    playerScore++;
+                        cardRowRef.displayCards();
 
-                    cardRowRef.displayCards();
+                        cout << endl;
 
-                    cout << endl;
+                        goto loop;
+                    }
+                    else
+                    {
+                        //Adding the playerChoice card to their hand
+                        playerHand.push_back(cardRowRef.thirdRow[0]);
 
-                    goto loop;
+                        //Increasing playerScore 
+                        playerScore++;
+
+                        goto loop;
+                    }
                 }
                 else
                 {
@@ -897,6 +900,11 @@ void Gameplay::secondRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
     if (cardPile.size() != 1)
     {
+        //Redefing the value of lengths of the vectors is make sure it remains 1
+        cardRowRef.fifthLength = 1;
+        cardRowRef.fourthLength = 1;
+        cardRowRef.thirdLength = 1;
+
         cout << endl;
         cout << endl;
 
@@ -904,21 +912,21 @@ void Gameplay::secondRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
         do
         {
-            //Checking if the vector is empty
-            if (cardRowRef.secondLength == 0)
+            if (cardPile.size() == 1)
             {
-                cout << "First row complete!!" << endl;
+                cout << endl;
 
-                break;
-            }
-            //Checking if cardPile has been used up by the player.
-            else if (cardPile.size() == 0)
-            {
                 cout << "You lose!!" << endl;
 
                 cout << "Your score is: " << playerScore << endl;
 
-                break;
+                //Ending the program
+                exit(0);
+            }
+            if (cardRowRef.fourthLength == 1)
+            {
+                //Breaking of the loop
+                return;
             }
 
             cout << endl;
@@ -1161,22 +1169,32 @@ void Gameplay::secondRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
             {
                 if (playerHand.back().getValue() == cardRowRef.secondRow[0].getValue() + 1 || playerHand.back().getValue() == cardRowRef.secondRow[0].getValue() - 1)
                 {
-                    //Adding the playerChoice card to their hand
-                    playerHand.push_back(cardRowRef.secondRow[0]);
+                    if (cardRowRef.secondLength != 1)
+                    {
+                        //Adding the playerChoice card to their hand
+                        playerHand.push_back(cardRowRef.secondRow[0]);
 
-                    cardRowRef.secondRow.erase(cardRowRef.secondRow.begin());
+                        cardRowRef.secondRow.erase(cardRowRef.secondRow.begin());
 
-                    //Decrementing the vector length by one 
-                    cardRowRef.secondLength--;
+                        //Decrementing the vector length by one     
+                        cardRowRef.secondLength--;
 
-                    //Increasing playerScore 
-                    playerScore++;
+                        cardRowRef.displayCards();
 
-                    cardRowRef.displayCards();
+                        cout << endl;
 
-                    cout << endl;
+                        goto loop;
+                    }
+                    else
+                    {
+                        //Adding the playerChoice card to their hand
+                        playerHand.push_back(cardRowRef.secondRow[0]);
 
-                    goto loop;
+                        //Increasing playerScore 
+                        playerScore++;
+
+                        goto loop;
+                    }
                 }
                 else
                 {
@@ -1195,9 +1213,16 @@ void Gameplay::secondRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
 void Gameplay::firstRowLogic(CardRows cardRowRef, Deck cardRowRefDeck) 
 {
+    
 
     if (cardPile.size() != 1)
     {
+        //Redefing the value of lengths of the vectors is make sure it remains 1
+        cardRowRef.fifthLength = 1;
+        cardRowRef.fourthLength = 1;
+        cardRowRef.thirdLength = 1;
+        cardRowRef.secondRow = 1;
+
         cout << endl;
         cout << endl;
 
@@ -1205,21 +1230,21 @@ void Gameplay::firstRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 
         do
         {
-            //Checking if the vector is empty
-            if (cardRowRef.firstLength == 0)
+            if (cardPile.size() == 1)
             {
-                cout << "First row complete!!" << endl;
+                cout << endl;
 
-                break;
-            }
-            //Checking if cardPile has been used up by the player.
-            else if (cardPile.size() == 0)
-            {
                 cout << "You lose!!" << endl;
 
                 cout << "Your score is: " << playerScore << endl;
 
-                break;
+                //Ending the program
+                exit(0);
+            }
+            if (cardRowRef.fourthLength == 1)
+            {
+                //Breaking of the loop
+                return;
             }
 
             cout << endl;
@@ -1462,22 +1487,32 @@ void Gameplay::firstRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
             {
                 if (playerHand.back().getValue() == cardRowRef.firstRow[0].getValue() + 1 || playerHand.back().getValue() == cardRowRef.firstRow[0].getValue() - 1)
                 {
-                    //Adding the playerChoice card to their hand
-                    playerHand.push_back(cardRowRef.firstRow[0]);
+                    if (cardRowRef.firstLength != 1)
+                    {
+                        //Adding the playerChoice card to their hand
+                        playerHand.push_back(cardRowRef.firstRow[0]);
 
-                    cardRowRef.firstRow.erase(cardRowRef.firstRow.begin());
+                        cardRowRef.firstRow.erase(cardRowRef.firstRow.begin());
 
-                    //Decrementing the vector length by one 
-                    cardRowRef.firstLength--;
+                        //Decrementing the vector length by one     
+                        cardRowRef.firstLength--;
 
-                    //Increasing playerScore 
-                    playerScore++;
+                        cardRowRef.displayCards();
 
-                    cardRowRef.displayCards();
+                        cout << endl;
 
-                    cout << endl;
+                        goto loop;
+                    }
+                    else
+                    {
+                        //Adding the playerChoice card to their hand
+                        playerHand.push_back(cardRowRef.firstRow[0]);
 
-                    goto loop;
+                        //Increasing playerScore 
+                        playerScore++;
+
+                        goto loop;
+                    }
                 }
                 else
                 {

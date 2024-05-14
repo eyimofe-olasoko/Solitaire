@@ -32,7 +32,7 @@
     {
 
         //Displaying all the card rows and changing the card values to match card names
-        for (size_t i = 0; i < firstLength; i++) 
+        for (size_t i = 0; i < firstLength; i++)
         {
             if (firstRow[i].getValue() == 0)
             {
@@ -56,7 +56,7 @@
             {
                 cout << "King" << " of " << firstRow[i].getSuit() << " | ";
             }
-            else 
+            else
             {
                 cout << firstRow[i].getValue() << " of " << firstRow[i].getSuit() << " | ";
             }
@@ -64,7 +64,7 @@
 
         cout << endl;
 
-        for (size_t i = 0; i < secondLength; i++) 
+        for (size_t i = 0; i < secondLength; i++)
         {
             if (secondRow[i].getValue() == 0)
             {
@@ -162,34 +162,43 @@
 
         for (size_t i = 0; i < fifthLength; i++)
         {
-            if (fifthRow[i].getValue() == 0)
+            if (fifthLength == 1)
             {
-                fifthRow[i].setValue(1);
-
-                cout << "Ace" << " of " << fifthRow[i].getSuit() << " | ";
-            }
-            else if (fifthRow[i].getValue() == 1)
-            {
-                cout << "Ace" << " of " << fifthRow[i].getSuit() << " | ";
-            }
-            else if (fifthRow[i].getValue() == 11)
-            {
-                cout << "Jack" << " of " << fifthRow[i].getSuit() << " | ";
-            }
-            else if (fifthRow[i].getValue() == 12)
-            {
-                cout << "Queen" << " of " << fifthRow[i].getSuit() << " | ";
-            }
-            else if (fifthRow[i].getValue() == 13)
-            {
-                cout << "King" << " of " << fifthRow[i].getSuit() << " | ";
+                cout << "--------------------------ROW COMPLETE--------------------------" << endl;
             }
             else
-            {
-                cout << fifthRow[i].getValue() << " of " << fifthRow[i].getSuit() << " | ";
+            {   
+                if (fifthRow[i].getValue() == 0)
+                {
+                    fifthRow[i].setValue(1);
+
+                    cout << "Ace" << " of " << fifthRow[i].getSuit() << " | ";
+                }
+                else if (fifthRow[i].getValue() == 1)
+                {
+                    cout << "Ace" << " of " << fifthRow[i].getSuit() << " | ";
+                }
+                else if (fifthRow[i].getValue() == 11)
+                {
+                    cout << "Jack" << " of " << fifthRow[i].getSuit() << " | ";
+                }
+                else if (fifthRow[i].getValue() == 12)
+                {
+                    cout << "Queen" << " of " << fifthRow[i].getSuit() << " | ";
+                }
+                else if (fifthRow[i].getValue() == 13)
+                {
+                    cout << "King" << " of " << fifthRow[i].getSuit() << " | ";
+                }
+                else
+                {
+                    cout << fifthLength << " - " << fifthRow[i].getValue() << " of " << fifthRow[i].getSuit() << " | ";
+                }
             }
-           
+            
+
         }
+        
     }
 
    
