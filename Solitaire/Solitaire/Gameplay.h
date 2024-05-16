@@ -8,7 +8,7 @@ public:
 
 	Gameplay();
 
-	void firstRowLogic(CardRows cardRowRef, Deck cardRowRefDeck);
+
 	void secondRowLogic(CardRows cardRowRef, Deck cardRowRefDeck);
 	void thirdRowLogic(CardRows cardRowRef, Deck cardRowRefDeck);
 	void fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck);

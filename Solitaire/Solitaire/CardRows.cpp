@@ -5,11 +5,6 @@
 
     for (size_t item = 0; item < 5; item++)
     {
-        //Adding cards to the card rows
-        firstRow.push_back(sourceDeck.cardDeck.back());
-
-        sourceDeck.cardDeck.pop_back();
-
         secondRow.push_back(sourceDeck.cardDeck.back());
 
         sourceDeck.cardDeck.pop_back();
@@ -30,50 +25,7 @@
 
     void CardRows::displayCards() 
     {
-
         //Displaying all the card rows and changing the card values to match card names
-        for (size_t i = 0; i < firstLength; i++)
-        {
-            if (firstLength == 1)
-            {
-                cout << "--------------------------ROW COMPLETE--------------------------" << endl;
-
-                cout << "YOU WON!!!" << endl;
-            }
-            else 
-            {
-                if (firstRow[i].getValue() == 0)
-                {
-                    firstRow[i].setValue(1);
-
-                    cout << "Ace" << " of " << firstRow[i].getSuit() << " | ";
-                }
-                else if (firstRow[i].getValue() == 1)
-                {
-                    cout << "Ace" << " of " << firstRow[i].getSuit() << " | ";
-                }
-                else if (firstRow[i].getValue() == 11)
-                {
-                    cout << "Jack" << " of " << firstRow[i].getSuit() << " | ";
-                }
-                else if (firstRow[i].getValue() == 12)
-                {
-                    cout << "Queen" << " of " << firstRow[i].getSuit() << " | ";
-                }
-                else if (firstRow[i].getValue() == 13)
-                {
-                    cout << "King" << " of " << firstRow[i].getSuit() << " | ";
-                }
-                else
-                {
-                    cout << firstRow[i].getValue() << " of " << firstRow[i].getSuit() << " | ";
-                }
-            }
-            
-        }
-
-        cout << endl;
-
         for (size_t i = 0; i < secondLength; i++)
         {
             if (secondLength == 1)
