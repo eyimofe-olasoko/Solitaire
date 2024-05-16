@@ -588,7 +588,7 @@ void Gameplay::fourthRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
 void Gameplay::thirdRowLogic(CardRows cardRowRef, Deck cardRowRefDeck) 
 {
 
-    if (cardPile.size() != 2)
+    if (cardPile.size() != 1)
     {
         //Redefing the value of lengths of the vectors is make sure it remains 1
         cardRowRef.fifthLength = 1;
