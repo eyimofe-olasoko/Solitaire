@@ -941,6 +941,9 @@ void Gameplay::secondRowLogic(CardRows cardRowRef, Deck cardRowRefDeck)
             if (cardRowRef.secondLength == 1)
             {
                 //Breaking of the loop
+
+                cout << "You won!!" << endl;
+
                 return;
             }
 
